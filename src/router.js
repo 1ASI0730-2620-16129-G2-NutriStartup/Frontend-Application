@@ -1,5 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
 import Home from "@/shared/presentation/views/home.vue";
+import User1View from "@/shared/presentation/views/user1-view.vue";
+import User2View from "@/shared/presentation/views/user2-view.vue";
 
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
@@ -27,6 +29,18 @@ const routes =
             name: 'not-found',
             component: pageNotFound,
             meta: { title: 'Page Not Found' }
+        },
+        {
+            path: '/user1-view',
+            name: 'user1',
+            component: User1View,
+            meta: { title: 'User 1' }
+        },
+        {
+            path: '/user2-view',
+            name: 'user2',
+            component: User2View,
+            meta: { title: 'User 2' }
         },
     ];
 
