@@ -1,0 +1,27 @@
+{
+  "option": {
+    "home": "Home",
+    "about": "About"
+  },
+  "authoring-phrase": {
+    "intro": "Made with",
+    "use": "using",
+    "author": "by {brand} Developer Team"
+  },
+  "about": {
+    "title": "About Us",
+    "content": "NutriApp Integral is a platform designed to provide individuals looking to lose weight with guidance on maintaining healthy habits, while simultaneously allowing nutritionists to generate extra income."
+  },
+  "home": {
+    "title": "Welcome",
+    "content": "Welcome to NutriApp Integral"
+  },
+  "page-not-found": {
+    "title": "Page Not Found",
+    "content": "The path {unavailable-route} is not available.",
+    "go-home": "Go Home"
+  },
+  "errors": {
+    "occurred": "Errors occurred"
+  }
+}

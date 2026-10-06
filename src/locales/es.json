@@ -1,0 +1,27 @@
+{
+  "option": {
+    "home": "Inicio",
+    "about": "Acerca de"
+  },
+  "authoring-phrase": {
+    "intro": "Hecho con",
+    "use": "utilizando",
+    "author": "por el Equipo de Desarrollo de {brand}"
+  },
+  "about": {
+    "title": "Acerca de Nosotros",
+    "content": "NutriApp Integral es una plataforma que esta diseñada para que las personas que quieran reducir su peso obtengan acompañamiento para mantener hábitos saludables, al mismo tiempo que los nutricionistas puedan generar un ingreso extra."
+  },
+  "home": {
+    "title": "Inicio",
+    "content": "Bienvenido a NutriApp Integral"
+  },
+  "page-not-found": {
+    "title": "Página no encontrada",
+    "content": "La ruta {unavailable-route} no está disponible.",
+    "go-home": "Ir al Inicio"
+  },
+  "errors": {
+    "occurred": "Ocurrieron errores"
+  }
+}
