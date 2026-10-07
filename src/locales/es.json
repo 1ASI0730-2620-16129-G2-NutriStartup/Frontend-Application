@@ -23,5 +23,24 @@
   },
   "errors": {
     "occurred": "Ocurrieron errores"
+  },
+  "nutrition-plans": {
+    "title": "Planes de Nutrición",
+    "id": "ID",
+    "name": "Nombre",
+    "description": "Descripción",
+    "objective": "Objectivo",
+    "status": "Estado",
+    "actions": "Acciones",
+    "new": "Nuevo Plan de Nutrición",
+    "confirm-delete": "¿Estás seguro de que quieres eliminar {title}?",
+    "delete-header": "Confirmar Eliminación"
+  },
+  "nutrition-plan": {
+    "new-title": "Crear Nuevo Plan de Nutrición",
+    "edit-title": "Editar Plan de Nutrición",
+    "name": "Nombre",
+    "save": "Guardar",
+    "cancel": "Cancelar"
   }
 }
