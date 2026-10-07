@@ -28,6 +28,16 @@ const useNutritionStore = defineStore("nutrition", () => {
         return foodRecommendationsLoaded ? foodRecommendations.value.length : 0;
     });
 
+    function fetchNutritionPlans() {
+        nutritionApi.getNutritionPlans().then((response) => {
+            nutritionPlans.value = NutritionPlanAssembler.toEntitiesFromResponse(response);
+            nutritionPlansLoaded.value = true;
+            console.log(nutritionPlansLoaded.value);
+            console.log(nutritionPlans.value);
+        }).catch((error) => {
+            errors.value.push(error);
+        });
+    }
     function getNutritionPlanById(id) {
         let idNum = parseInt(id);
         return nutritionPlans.value.find(category => category["id"] === idNum);
@@ -48,6 +58,16 @@ const useNutritionStore = defineStore("nutrition", () => {
             const index = nutritionPlans.value.findIndex(c => c["id"] === updatedNutritionPlan.id);
             if (index !== -1) {
                 nutritionPlans.value[index] = updatedNutritionPlan;
+            }
+        }).catch((error) => {
+            errors.value.push(error);
+        });
+    }
+    function deleteNutritionPlan(nutritionPlan) {
+        nutritionApi.deleteNutritionPlan(nutritionPlan.id).then((response) => {
+            const index = nutritionPlans.value.findIndex(c => c["id"] === nutritionPlan.id);
+            if (index !== -1) {
+                nutritionPlans.value.splice(index, 1);
             }
         }).catch((error) => {
             errors.value.push(error);
@@ -85,9 +105,11 @@ const useNutritionStore = defineStore("nutrition", () => {
         nutritionPlansCount,
         mealPlansCount,
         foodRecommendationsCount,
+        fetchNutritionPlans,
         getNutritionPlanById,
         addNutritionPlan,
         updateNutritionPlan,
+        deleteNutritionPlan,
         addMealPlan,
         addFoodRecommendation,
     }
