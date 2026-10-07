@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
 import Home from "@/shared/presentation/views/home.vue";
-import User1View from "@/shared/presentation/views/user1-view.vue";
-import User2View from "@/shared/presentation/views/user2-view.vue";
+import NutritionistView from "@/shared/presentation/views/nutritionist-view.vue";
+import PatientView from "@/shared/presentation/views/patient-view.vue";
 
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
@@ -33,13 +33,13 @@ const routes =
         {
             path: '/user1-view',
             name: 'user1',
-            component: User1View,
+            component: NutritionistView,
             meta: { title: 'User 1' }
         },
         {
             path: '/user2-view',
             name: 'user2',
-            component: User2View,
+            component: PatientView,
             meta: { title: 'User 2' }
         },
     ];
