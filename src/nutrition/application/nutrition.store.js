@@ -74,11 +74,47 @@ const useNutritionStore = defineStore("nutrition", () => {
         });
     }
 
+    function fetchMealPlans() {
+        nutritionApi.getMealPlans().then((response) => {
+            mealPlans.value = MealPlanAssembler.toEntitiesFromResponse(response);
+            mealPlansLoaded.value = true;
+            console.log(mealPlansLoaded.value);
+            console.log(mealPlans.value);
+        }).catch((error) => {
+            errors.value.push(error);
+        });
+    }
+    function getMealPlanById(id) {
+        let idNum = parseInt(id);
+        return mealPlans.value.find(meal => meal["id"] === idNum);
+    }
     function addMealPlan(mealPlan) {
         nutritionApi.createMealPlan(mealPlan).then((response) => {
             const resource = response.data;
             const newMealPlan = MealPlanAssembler.toEntityFromResource(resource);
             mealPlans.value.push(newMealPlan);
+        }).catch((error) => {
+            errors.value.push(error);
+        });
+    }
+    function updateMealPlan(mealPlan) {
+        nutritionApi.updateMealPlan(mealPlan).then((response) => {
+            const resource = response.data;
+            const updatedMealPlan = MealPlanAssembler.toEntityFromResource(resource);
+            const index = mealPlans.value.findIndex(c => c["id"] === updatedMealPlan.id);
+            if (index !== -1) {
+                mealPlans.value[index] = updatedMealPlan;
+            }
+        }).catch((error) => {
+            errors.value.push(error);
+        });
+    }
+    function deleteMealPlan(mealPlan) {
+        nutritionApi.deleteMealPlan(mealPlan.id).then((response) => {
+            const index = mealPlans.value.findIndex(c => c["id"] === mealPlan.id);
+            if (index !== -1) {
+                mealPlans.value.splice(index, 1);
+            }
         }).catch((error) => {
             errors.value.push(error);
         });
@@ -110,7 +146,11 @@ const useNutritionStore = defineStore("nutrition", () => {
         addNutritionPlan,
         updateNutritionPlan,
         deleteNutritionPlan,
+        fetchMealPlans,
+        getMealPlanById,
         addMealPlan,
+        updateMealPlan,
+        deleteMealPlan,
         addFoodRecommendation,
     }
 });
