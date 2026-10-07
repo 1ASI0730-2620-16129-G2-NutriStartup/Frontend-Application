@@ -3,6 +3,8 @@ import Home from "@/shared/presentation/views/home.vue";
 import NutritionistView from "@/shared/presentation/views/nutritionist-view.vue";
 import PatientView from "@/shared/presentation/views/patient-view.vue";
 
+import nutritionRoutes from "@/nutrition/presentation/nutrition-routes.js";
+
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 
@@ -19,6 +21,11 @@ const routes =
             name: 'about',
             component: about,
             meta: { title: 'About' }
+        },
+        {
+            path: '/nutrition',
+            name: 'nutrition',
+            children: nutritionRoutes
         },
         {
             path: '/',

@@ -41,7 +41,7 @@ const confirmDelete = (nutritionPlan) => {
 
 <template>
   <div class="p-4">
-    <h1>{{ t('nutrition-plan.title') }}</h1>
+    <h1>{{ t('nutrition-plans.title') }}</h1>
     <pv-button :label="t('nutrition-plans.new')" class="mb-3" icon="pi pi-plus" @click="navigateToNew"/>
     <pv-data-table
         :loading="!nutritionPlansLoaded"
@@ -51,9 +51,12 @@ const confirmDelete = (nutritionPlan) => {
         paginator
         striped-rows
         table-style="min-width: 50rem">
-      <pv-column :header="t('categories.id')" field="id" sortable/>
-      <pv-column :header="t('categories.name')" field="name" sortable/>
-      <pv-column :header="t('categories.actions')">
+      <pv-column :header="t('nutrition-plans.id')" field="id" sortable/>
+      <pv-column :header="t('nutrition-plans.name')" field="name" sortable/>
+      <pv-column :header="t('nutrition-plans.description')" field="description" sortable/>
+      <pv-column :header="t('nutrition-plans.objective')" field="objective" sortable/>
+      <pv-column :header="t('nutrition-plans.status')" field="status" sortable/>
+      <pv-column :header="t('nutrition-plans.actions')">
         <template #body="slotProps">
           <pv-button icon="pi pi-pencil" rounded text @click="navigateToEdit(slotProps.data.id)"/>
           <pv-button icon="pi pi-trash" rounded severity="danger" text @click="confirmDelete(slotProps.data)"/>
