@@ -73,4 +73,24 @@ const useNutritionStore = defineStore("nutrition", () => {
             errors.value.push(error);
         });
     }
+
+    return {
+        nutritionPlans,
+        mealPlans,
+        foodRecommendations,
+        errors,
+        nutritionPlansLoaded,
+        mealPlansLoaded,
+        foodRecommendationsLoaded,
+        nutritionPlansCount,
+        mealPlansCount,
+        foodRecommendationsCount,
+        getNutritionPlanById,
+        addNutritionPlan,
+        updateNutritionPlan,
+        addMealPlan,
+        addFoodRecommendation,
+    }
 });
+
+export default useNutritionStore;
