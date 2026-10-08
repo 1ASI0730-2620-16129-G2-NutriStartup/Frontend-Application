@@ -50,10 +50,16 @@ export class NutritionApi extends BaseApi {
         return this.#mealPlanEndpoint.getById(id);
     }
     createMealPlan(resource) {
-        return this.#mealPlanEndpoint.create(resource);
+        const plan = {...resource};
+        delete plan.id;
+        return this.#mealPlanEndpoint.create({
+            ...plan
+        });
     }
     updateMealPlan(resource) {
-        return this.#mealPlanEndpoint.update(resource);
+        return this.#mealPlanEndpoint.update(resource.id, {
+            ...resource
+        });
     }
     deleteMealPlan(id) {
         return this.#mealPlanEndpoint.delete(id);
@@ -66,10 +72,16 @@ export class NutritionApi extends BaseApi {
         return this.#foodRecommendationEndpoint.getById(id);
     }
     createFoodRecommendation(resource) {
-        return this.#foodRecommendationEndpoint.create(resource);
+        const recommendation = {...resource};
+        delete recommendation.id;
+        return this.#foodRecommendationEndpoint.create({
+            ...recommendation
+        });
     }
     updateFoodRecommendation(resource) {
-        return this.#foodRecommendationEndpoint.update(resource);
+        return this.#foodRecommendationEndpoint.update(resource.id, {
+            ...resource
+        });
     }
     deleteFoodRecommendation(id) {
         return this.#foodRecommendationEndpoint.delete(id);
