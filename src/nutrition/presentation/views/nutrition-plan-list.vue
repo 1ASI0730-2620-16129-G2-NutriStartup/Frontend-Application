@@ -21,11 +21,11 @@ onMounted(() => {
 });
 
 const navigateToNew = () => {
-  router.push({name: "nutrition-plans-new"});
+  router.push({name: "nutrition-plans-nutritionist-new"});
 };
 
 const navigateToEdit = (id) => {
-  router.push({name: 'nutrition-plan-edit', params: {id}});
+  router.push({name: 'nutrition-plan-nutritionist-edit', params: {id}});
 };
 
 const confirmDelete = (nutritionPlan) => {
@@ -41,7 +41,7 @@ const confirmDelete = (nutritionPlan) => {
 </script>
 
 <template>
-  <div class="p-4">
+  <div class="p-4 letter-style">
     <h1>{{ t('nutrition-plans.title') }}</h1>
     <pv-button
         v-if="!route.meta.readOnly"
@@ -89,5 +89,7 @@ const confirmDelete = (nutritionPlan) => {
 </template>
 
 <style scoped>
-
+h1 {
+  font-style: italic;
+}
 </style>

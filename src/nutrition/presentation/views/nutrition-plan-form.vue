@@ -63,12 +63,12 @@ const saveNutritionPlan = () => {
 
 
 const navigateBack = () => {
-  router.push({ name: 'nutrition-plans' });
+  router.push({ name: 'nutrition-plans-nutritionist' });
 };
 </script>
 
 <template>
-  <div class="p-4">
+  <div class="p-4 letter-style">
     <h1>{{ isEdit ? t('nutrition-plan.edit-title') : t('nutrition-plan.new-title') }}</h1>
     <form @submit.prevent="saveNutritionPlan">
       <div class="field mb-3">
@@ -117,5 +117,7 @@ const navigateBack = () => {
 </template>
 
 <style scoped>
-
+h1 {
+  font-style: italic;
+}
 </style>
