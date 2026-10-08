@@ -31,6 +31,8 @@
     "name": "Nombre",
     "description": "Descripción",
     "objective": "Objectivo",
+    "start-date": "Fecha de Inicio",
+    "end-date": "Fecha de Fin",
     "status": "Estado",
     "actions": "Acciones",
     "new": "Nuevo Plan de Nutrición",
@@ -41,6 +43,11 @@
     "new-title": "Crear Nuevo Plan de Nutrición",
     "edit-title": "Editar Plan de Nutrición",
     "name": "Nombre",
+    "description": "Descripción",
+    "objective": "Objectivo",
+    "start-date": "Fecha de Inicio",
+    "end-date": "Fecha de Fin",
+    "status": "Estado",
     "save": "Guardar",
     "cancel": "Cancelar"
   }

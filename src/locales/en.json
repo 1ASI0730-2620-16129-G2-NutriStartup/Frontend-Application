@@ -31,6 +31,8 @@
     "name": "Name",
     "description": "Description",
     "objective": "Objective",
+    "start-date": "Start Date",
+    "end-date": "End Date",
     "status": "Status",
     "actions": "Actions",
     "new": "New Nutrition Plan",
@@ -41,6 +43,11 @@
     "new-title": "Create New Nutrition Plan",
     "edit-title": "Edit Nutrition Plan",
     "name": "Name",
+    "description": "Description",
+    "objective": "Objective",
+    "start-date": "Start Date",
+    "end-date": "End Date",
+    "status": "Status",
     "save": "Save",
     "cancel": "Cancel"
   }
