@@ -73,5 +73,27 @@
     "calories": "Calorías",
     "save": "Guardar",
     "cancel": "Cancelar"
+  },
+  "food-recommendations": {
+    "title": "Recomendaciones de Alimentos",
+    "id": "ID",
+    "meal-id": "ID de Plan de Comida",
+    "name": "Nombre del Alimento",
+    "portion": "Porción",
+    "value": "Valor Nutricional",
+    "actions": "Acciones",
+    "new": "Nueva Recomendación de Alimento",
+    "confirm-delete": "¿Estás seguro de que quieres eliminar {title}?",
+    "delete-header": "Confirmar Eliminación"
+  },
+  "food-recommendation": {
+    "new-title": "Crear Nueva Recomendación de Alimento",
+    "edit-title": "Editar Recomendación de Alimento",
+    "meal-id": "ID de Plan de Comida",
+    "name": "Nombre del Alimento",
+    "portion": "Porción",
+    "value": "Valor Nutricional",
+    "save": "Guardar",
+    "cancel": "Cancelar"
   }
 }
