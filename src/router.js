@@ -3,7 +3,8 @@ import Home from "@/shared/presentation/views/home.vue";
 import NutritionistView from "@/shared/presentation/views/nutritionist-view.vue";
 import PatientView from "@/shared/presentation/views/patient-view.vue";
 
-import nutritionRoutes from "@/nutrition/presentation/nutrition-routes.js";
+import nutritionNutritionistRoutes from "@/nutrition/presentation/nutrition-nutritionist-routes.js";
+import nutritionPatientRoutes from "@/nutrition/presentation/nutrition-patient-routes.js";
 
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
@@ -23,9 +24,14 @@ const routes =
             meta: { title: 'About' }
         },
         {
-            path: '/nutrition',
-            name: 'nutrition',
-            children: nutritionRoutes
+            path: '/nutrition-nutritionist',
+            name: 'nutrition-nutritionist',
+            children: nutritionNutritionistRoutes
+        },
+        {
+            path: '/nutrition-patient',
+            name: 'nutrition-patient',
+            children: nutritionPatientRoutes
         },
         {
             path: '/',

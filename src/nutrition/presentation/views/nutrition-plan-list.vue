@@ -1,11 +1,12 @@
 <script setup>
 import {useI18n} from "vue-i18n";
-import {useRouter} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import {useConfirm} from "primevue";
 import useNutritionStore from "@/nutrition/application/nutrition.store.js";
 import {onMounted, toRefs} from "vue";
 
 const {t} = useI18n();
+const route = useRoute();
 const router = useRouter();
 const confirm = useConfirm();
 const store = useNutritionStore();
@@ -42,7 +43,12 @@ const confirmDelete = (nutritionPlan) => {
 <template>
   <div class="p-4">
     <h1>{{ t('nutrition-plans.title') }}</h1>
-    <pv-button :label="t('nutrition-plans.new')" class="mb-3" icon="pi pi-plus" @click="navigateToNew"/>
+    <pv-button
+        v-if="!route.meta.readOnly"
+        :label="t('nutrition-plans.new')"
+        class="mb-3"
+        icon="pi pi-plus"
+        @click="navigateToNew"/>
     <pv-data-table
         :loading="!nutritionPlansLoaded"
         :rows="5"
@@ -66,7 +72,9 @@ const confirmDelete = (nutritionPlan) => {
         </template>
       </pv-column>
       <pv-column :header="t('nutrition-plans.status')" field="status" sortable/>
-      <pv-column :header="t('nutrition-plans.actions')">
+      <pv-column
+          v-if="!route.meta.readOnly"
+          :header="t('nutrition-plans.actions')">
         <template #body="slotProps">
           <pv-button icon="pi pi-pencil" rounded text @click="navigateToEdit(slotProps.data.id)"/>
           <pv-button icon="pi pi-trash" rounded severity="danger" text @click="confirmDelete(slotProps.data)"/>

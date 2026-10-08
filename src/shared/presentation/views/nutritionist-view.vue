@@ -13,7 +13,7 @@ const items = [
   {label: 'option.home', to: '/home'},
   {label: 'option.about', to: '/about'},
 
-  {label: 'option.nutrition-plans', to: '/nutrition/nutrition-plans'},
+  {label: 'option.nutrition-plans', to: '/nutrition-nutritionist/nutrition-plans-nutritionist'},
 ];
 </script>
 

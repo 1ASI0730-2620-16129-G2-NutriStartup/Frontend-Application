@@ -1,25 +1,25 @@
 const nutritionPlanList = () => import('@/nutrition/presentation/views/nutrition-plan-list.vue');
 const nutritionPlanForm = () => import('@/nutrition/presentation/views/nutrition-plan-form.vue');
 
-const nutritionRoutes = [
+const nutritionNutritionistRoutes = [
     {
-        path: 'nutrition-plans',
-        name: 'nutrition-plans',
+        path: 'nutrition-plans-nutritionist',
+        name: 'nutrition-plans-nutritionist',
         component: nutritionPlanList,
         meta: {title: 'Nutrition Plans'},
     },
     {
-        path: 'nutrition-plans/new',
-        name: 'nutrition-plans-new',
+        path: 'nutrition-plans-nutritionist/new',
+        name: 'nutrition-plans-nutritionist-new',
         component: nutritionPlanForm,
         meta: {title: 'New Nutrition Plans'}
     },
     {
-        path: 'nutrition-plans/:id/edit',
-        name: 'nutrition-plan-edit',
+        path: 'nutrition-plans-nutritionist/:id/edit',
+        name: 'nutrition-plan-nutritionist-edit',
         component: nutritionPlanForm,
         meta: {title: 'Edit Nutrition Plan'}
     },
 ];
 
-export default nutritionRoutes;
+export default nutritionNutritionistRoutes;
