@@ -23,5 +23,30 @@
   },
   "errors": {
     "occurred": "Errors occurred"
+  },
+  "appointments": {
+    "common": { "actions": "Actions", "cancel": "Cancel", "empty": "No data", "error": "Something went wrong" },
+    "date": "Date",
+    "start": "Start",
+    "end": "End",
+    "nutritionist": "Nutritionist",
+    "reason": "Reason",
+    "status": "Status",
+    "availability": { "title": "Availability", "select": "Select" },
+    "form": {
+      "title": "Book appointment",
+      "submit": "Book",
+      "selectSlot": "Select an available slot first",
+      "reasonRequired": "Reason is required"
+    },
+    "list": { "title": "My appointments", "new": "New appointment", "consultation": "Register consultation" }
+  },
+  "consultations": {
+    "title": "Register consultation",
+    "notes": "Notes",
+    "recommendations": "Recommendations",
+    "submit": "Save",
+    "noAppointment": "No associated appointment",
+    "notesRequired": "Notes are required"
   }
 }

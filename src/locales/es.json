@@ -23,5 +23,30 @@
   },
   "errors": {
     "occurred": "Ocurrieron errores"
+  },
+  "appointments": {
+    "common": { "actions": "Acciones", "cancel": "Cancelar", "empty": "Sin datos", "error": "Ocurrió un error" },
+    "date": "Fecha",
+    "start": "Inicio",
+    "end": "Fin",
+    "nutritionist": "Nutricionista",
+    "reason": "Motivo",
+    "status": "Estado",
+    "availability": { "title": "Disponibilidad", "select": "Seleccionar" },
+    "form": {
+      "title": "Reservar cita",
+      "submit": "Reservar",
+      "selectSlot": "Selecciona un horario disponible primero",
+      "reasonRequired": "El motivo es obligatorio"
+    },
+    "list": { "title": "Mis citas", "new": "Nueva cita", "consultation": "Registrar consulta" }
+  },
+  "consultations": {
+    "title": "Registrar consulta",
+    "notes": "Notas",
+    "recommendations": "Recomendaciones",
+    "submit": "Guardar",
+    "noAppointment": "No hay cita asociada",
+    "notesRequired": "Las notas son obligatorias"
   }
 }
