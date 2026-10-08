@@ -20,7 +20,7 @@ onMounted(() => {
 });
 
 const navigateToNew = () => {
-  router.push({name: 'nutrition-plan-new'});
+  router.push({name: "nutrition-plans-new"});
 };
 
 const navigateToEdit = (id) => {
@@ -55,6 +55,16 @@ const confirmDelete = (nutritionPlan) => {
       <pv-column :header="t('nutrition-plans.name')" field="name" sortable/>
       <pv-column :header="t('nutrition-plans.description')" field="description" sortable/>
       <pv-column :header="t('nutrition-plans.objective')" field="objective" sortable/>
+      <pv-column :header="t('nutrition-plans.start-date')" sortable>
+        <template #body="slotProps">
+          {{ slotProps.data.startDate.toDate().toLocaleDateString() }}
+        </template>
+      </pv-column>
+      <pv-column :header="t('nutrition-plans.end-date')" sortable>
+        <template #body="slotProps">
+          {{ slotProps.data.endDate.toDate().toLocaleDateString() }}
+        </template>
+      </pv-column>
       <pv-column :header="t('nutrition-plans.status')" field="status" sortable/>
       <pv-column :header="t('nutrition-plans.actions')">
         <template #body="slotProps">

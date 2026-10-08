@@ -2,9 +2,8 @@
 import {useI18n} from "vue-i18n";
 import {useRoute, useRouter} from "vue-router";
 import useNutritionStore from "../../application/nutrition.store.js";
-import {computed, onMounted, ref, watch} from "vue";
+import {computed, onMounted, ref} from "vue";
 import {NutritionPlan} from "../../domain/model/nutrition-plan.entity.js";
-import {DateTime} from "@/shared/domain/model/date-time.js";
 
 const {t} = useI18n();
 const route = useRoute();
@@ -18,36 +17,9 @@ const form = ref({
   status: ''
 });
 
-const formError = ref("");
-
 const isEdit = computed(() => {
   return !!route.params.id;
 });
-
-function formatDate(value) {
-  if (value instanceof DateTime) {
-    return value.toISOString().slice(0, 10);
-  }
-
-  const dateValue = String(value ?? "");
-  const datePrefix = dateValue.match(/^\d{4}-\d{2}-\d{2}/);
-
-  if (datePrefix) {
-    return datePrefix[0];
-  }
-
-  const date = new Date(value);
-
-  if (Number.isNaN(date.getTime())) {
-    return "";
-  }
-
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-
-  return `${year}-${month}-${day}`;
-}
 
 onMounted(() => {
   console.log("Mounted nutrition plan form");
@@ -58,8 +30,8 @@ onMounted(() => {
       form.value.name = nutritionPlan.name;
       form.value.description = nutritionPlan.description;
       form.value.objective = nutritionPlan.objective;
-      form.value.startDate = nutritionPlan.startDate;
-      form.value.endDate = nutritionPlan.endDate;
+      form.value.startDate = nutritionPlan.startDate.toISOString().slice(0, 10);
+      form.value.endDate = nutritionPlan.endDate.toISOString().slice(0, 10);
       form.value.status = nutritionPlan.status;
     } else {
       router.push({ name: 'nutrition-plans' });
@@ -73,7 +45,7 @@ function getNutritionPlanById(id) {
 
 const saveNutritionPlan = () => {
   const nutritionPlan = new NutritionPlan({
-    id: isEdit.value ? route.params.is : null,
+    id: isEdit.value ? Number(route.params.id) : null,
     name: form.value.name,
     description: form.value.description,
     objective: form.value.objective,
@@ -89,6 +61,7 @@ const saveNutritionPlan = () => {
   navigateBack();
 };
 
+
 const navigateBack = () => {
   router.push({ name: 'nutrition-plans' });
 };
@@ -99,11 +72,42 @@ const navigateBack = () => {
     <h1>{{ isEdit ? t('nutrition-plan.edit-title') : t('nutrition-plan.new-title') }}</h1>
     <form @submit.prevent="saveNutritionPlan">
       <div class="field mb-3">
-        <label for="name">{{ t('nutrition-plan.name') }}</label>
+        <label for="name">{{ t('nutrition-plans.name') }}</label>
         <pv-input-text id="name" v-model="form.name" class="w-full" required />
+        <label for="description">{{ t('nutrition-plans.description') }}</label>
+        <pv-input-text id="description" v-model="form.description" class="w-full" required />
+        <label for="objective">{{ t('nutrition-plans.objective') }}</label>
+        <pv-input-text id="objective" v-model="form.objective" class="w-full" required />
+        <div class="field mb-3">
+          <label for="startDate">Start Date</label>
+          <input
+              id="startDate"
+              v-model="form.startDate"
+              class="w-full"
+              type="date"
+              required
+          />
+        </div>
+        <div class="field mb-3">
+          <label for="endDate">End Date</label>
+          <input
+              id="endDate"
+              v-model="form.endDate"
+              class="w-full"
+              type="date"
+              required
+          />
+        </div>
+        <label for="status">{{ t('nutrition-plans.status') }}</label>
+        <pv-input-text id="status" v-model="form.status" class="w-full" required />
       </div>
       <pv-button :label="t('nutrition-plan.save')" icon="pi pi-save" type="submit" />
-      <pv-button :label="t('nutrition-plan.cancel')" class="ml-2" saverity="secondary" @click="navigateBack" />
+      <pv-button
+          :label="t('nutrition-plan.cancel')"
+          class="ml-2"
+          saverity="secondary"
+          typeof="button"
+          @click="navigateBack" />
     </form>
     <div v-if="errors.length" class="text-red-500 mt-3">
       {{ t('errors.occurred') }}:
