@@ -58,7 +58,7 @@ const nutritionNutritionistRoutes = [
     },
     {
         path: 'food-recommendations-nutritionist/:id/edit',
-        name: 'food-recommendation-nutritionist-edit',
+        name: 'food-recommendations-nutritionist-edit',
         component: foodRecommendationForm,
         meta: {title: 'Edit Food Recommendation'}
     },

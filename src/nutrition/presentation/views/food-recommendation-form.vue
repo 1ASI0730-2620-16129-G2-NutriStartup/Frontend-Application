@@ -4,7 +4,6 @@ import {useRoute, useRouter} from "vue-router";
 import useNutritionStore from "@/nutrition/application/nutrition.store.js";
 import {computed, onMounted, ref} from "vue";
 import {FoodRecommendation} from "@/nutrition/domain/model/food-recommendation.entity.js";
-import {MealPlan} from "@/nutrition/domain/model/meal-plan.entity.js";
 
 const {t} = useI18n();
 const route = useRoute();
@@ -67,13 +66,13 @@ const navigateBack = () => {
     <h1>{{ isEdit ? t('food-recommendation.edit-title') : t('food-recommendation.new-title') }}</h1>
     <form @submit.prevent="saveFoodRecommendation">
       <div class="field mb-3">
-        <label for="mealPlanId">{{ t('meal-plans.meal-id') }}</label>
+        <label for="mealPlanId">{{ t('food-recommendations.meal-id') }}</label>
         <pv-input-text id="mealPlanId" v-model="form.mealPlanId" class="w-full" required />
-        <label for="foodName">{{ t('meal-plans.name') }}</label>
+        <label for="foodName">{{ t('food-recommendations.name') }}</label>
         <pv-input-text id="foodName" v-model="form.foodName" class="w-full" required />
-        <label for="portion">{{ t('meal-plans.portion') }}</label>
+        <label for="portion">{{ t('food-recommendations.portion') }}</label>
         <pv-input-text id="portion" v-model="form.portion" class="w-full" required />
-        <label for="nutritionalValue">{{ t('meal-plans.value') }}</label>
+        <label for="nutritionalValue">{{ t('food-recommendations.value') }}</label>
         <pv-input-text id="nutritionalValue" v-model="form.nutritionalValue" class="w-full" required />
       </div>
       <pv-button :label="t('food-recommendation.save')" icon="pi pi-save" type="submit" />
