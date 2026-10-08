@@ -4,7 +4,6 @@ import {useRoute, useRouter} from "vue-router";
 import useNutritionStore from "@/nutrition/application/nutrition.store.js";
 import {computed, onMounted, ref} from "vue";
 import {MealPlan} from "../../domain/model/meal-plan.entity.js";
-import {NutritionPlan} from "@/nutrition/domain/model/nutrition-plan.entity.js";
 
 const {t} = useI18n();
 const route = useRoute();
