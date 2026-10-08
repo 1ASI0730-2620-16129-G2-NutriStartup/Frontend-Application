@@ -3,12 +3,13 @@ import Home from "@/shared/presentation/views/home.vue";
 import NutritionistView from "@/shared/presentation/views/nutritionist-view.vue";
 import PatientView from "@/shared/presentation/views/patient-view.vue";
 
+const about = () => import('./shared/presentation/views/about.vue');
+const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
+
 const appointmentsView = () => import('./appointment-management/presentation/views/appointments.vue');
 const appointmentNewView = () => import('./appointment-management/presentation/views/appointment-new.vue');
 const availabilityView = () => import('./appointment-management/presentation/views/availability.vue');
 const consultationNewView = () => import('./appointment-management/presentation/views/consultation-new.vue');
-const about = () => import('./shared/presentation/views/about.vue');
-const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 
 const routes =
     [
