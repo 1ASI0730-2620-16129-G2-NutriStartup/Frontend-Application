@@ -2,6 +2,7 @@ const nutritionPlanList = () => import('@/nutrition/presentation/views/nutrition
 
 const mealPlanList = () => import('@/nutrition/presentation/views/meal-plan-list.vue');
 
+const foodRecommendationList = () => import('@/nutrition/presentation/views/food-recommendation-list.vue');
 
 const nutritionPatientRoutes = [
     {
@@ -19,6 +20,15 @@ const nutritionPatientRoutes = [
         component: mealPlanList,
         meta: {
             title: 'Meal Plans',
+            readOnly: true
+        },
+    },
+    {
+        path: 'food-recommendations-patient',
+        name: 'food-recommendations-patient',
+        component: foodRecommendationList,
+        meta: {
+            title: 'Food Recommendations',
             readOnly: true
         },
     },

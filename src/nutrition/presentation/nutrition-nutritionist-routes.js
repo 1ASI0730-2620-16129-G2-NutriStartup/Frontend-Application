@@ -4,6 +4,9 @@ const nutritionPlanForm = () => import('@/nutrition/presentation/views/nutrition
 const mealPlanList = () => import('@/nutrition/presentation/views/meal-plan-list.vue');
 const mealPlanForm = () => import('@/nutrition/presentation/views/meal-plan-form.vue');
 
+const foodRecommendationList = () => import('@/nutrition/presentation/views/food-recommendation-list.vue');
+const foodRecommendationForm = () => import('@/nutrition/presentation/views/food-recommendation-form.vue');
+
 const nutritionNutritionistRoutes = [
     {
         path: 'nutrition-plans-nutritionist',
@@ -40,6 +43,24 @@ const nutritionNutritionistRoutes = [
         name: 'meal-plan-nutritionist-edit',
         component: mealPlanForm,
         meta: {title: 'Edit Meal Plan'}
+    },
+    {
+        path: 'food-recommendations-nutritionist',
+        name: 'food-recommendations-nutritionist',
+        component: foodRecommendationList,
+        meta: {title: 'Food Recommendations'},
+    },
+    {
+        path: 'food-recommendations-nutritionist/new',
+        name: 'food-recommendations-nutritionist-new',
+        component: foodRecommendationForm,
+        meta: {title: 'New Food Recommendation'}
+    },
+    {
+        path: 'food-recommendations-nutritionist/:id/edit',
+        name: 'food-recommendation-nutritionist-edit',
+        component: foodRecommendationForm,
+        meta: {title: 'Edit Food Recommendation'}
     },
 ];
 
