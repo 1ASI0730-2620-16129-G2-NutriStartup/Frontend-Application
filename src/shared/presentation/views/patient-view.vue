@@ -20,14 +20,14 @@ const items = [
   <pv-toast/>
   <pv-confirm-dialog/>
   <header class="type-letter absolute top-0 left-0 w-full">
-    <pv-toolbar class="fo-color">
+    <pv-toolbar class="fo-color header-toolbar">
       <template #start>
         <pv-button class="p-button-text menu-button" icon="pi pi-bars" @click="toggleDrawer"/>
         <h3>NutriApp Integral</h3>
       </template>
       <template #end>
         <div class="toolbar-options flex-column mr-3">
-          <pv-button v-for="item in items" :key="item.label" as-child v-slot="slotProps">
+          <pv-button v-for="item in items" :key="item.label" class="toolbar-nav-button" as-child v-slot="slotProps">
             <router-link :to="item.to" :class="slotProps['class']">{{ t(item.label) }}</router-link>
           </pv-button>
         </div>
@@ -54,7 +54,12 @@ header h3 {
   background-color: #64acfc;
 }
 
-.toolbar-options :deep(.p-button) {
+:deep(.header-toolbar) {
+  border: none;
+  border-radius: 0;
+}
+
+.toolbar-options :deep(.toolbar-nav-button) {
   background-color: #64acfc;
   border: none;
 }
