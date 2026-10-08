@@ -2,7 +2,8 @@
   "option": {
     "home": "Home",
     "about": "About",
-    "nutrition-plans": "Nutrition Plans"
+    "nutrition-plans": "Nutrition Plans",
+    "meal-plans": "Meal Plans"
   },
   "authoring-phrase": {
     "intro": "Made with",
