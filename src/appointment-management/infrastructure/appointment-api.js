@@ -1,16 +1,18 @@
 import { BaseApi } from '@/shared/infrastructure/base-api.js';
 import { BaseEndpoint } from '@/shared/infrastructure/base-endpoint.js';
 
+const appointmentsPath = import.meta.env.VITE_APPOINTMENTS_ENDPOINT_PATH;
+const availabilitiesPath = import.meta.env.VITE_AVAILABILITIES_ENDPOINT_PATH;
+const consultationsPath = import.meta.env.VITE_CONSULTATIONS_ENDPOINT_PATH;
+
 export class AppointmentApi extends BaseApi {
     #appointmentEndpoint;
-    #availabilityEndpoint;
     #consultationEndpoint;
 
     constructor() {
         super();
-        this.#appointmentEndpoint = new BaseEndpoint(this, import.meta.env.VITE_APPOINTMENTS_ENDPOINT_PATH);
-        this.#availabilityEndpoint = new BaseEndpoint(this, import.meta.env.VITE_AVAILABILITIES_ENDPOINT_PATH);
-        this.#consultationEndpoint = new BaseEndpoint(this, import.meta.env.VITE_CONSULTATIONS_ENDPOINT_PATH);
+        this.#appointmentEndpoint = new BaseEndpoint(this, appointmentsPath);
+        this.#consultationEndpoint = new BaseEndpoint(this, consultationsPath);
     }
 
     createAppointment(resource) {
@@ -18,16 +20,20 @@ export class AppointmentApi extends BaseApi {
     }
 
     getAppointmentsByUser(userId) {
-        return this.#appointmentEndpoint.getAll({ userId });
+        return this.http.get(appointmentsPath, { params: { userId } });
     }
 
-    cancelAppointment(id) {
-        return this.#appointmentEndpoint.patch(id, { status: 'CANCELLED' });
+    cancelAppointment(appointment) {
+        return this.#appointmentEndpoint.update(appointment.id, { ...appointment, status: 'CANCELLED' });
+    }
+
+    deleteAppointment(id) {
+        return this.#appointmentEndpoint.delete(id);
     }
 
     getAvailability(nutritionistId) {
         const params = nutritionistId ? { nutritionistId } : {};
-        return this.#availabilityEndpoint.getAll(params);
+        return this.http.get(availabilitiesPath, { params });
     }
 
     registerConsultation(resource) {

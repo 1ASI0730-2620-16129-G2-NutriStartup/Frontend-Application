@@ -1,28 +1,9 @@
 {
   "option": {
     "home": "Home",
-    "about": "About"
-  },
-  "authoring-phrase": {
-    "intro": "Made with",
-    "use": "using",
-    "author": "by {brand} Developer Team"
-  },
-  "about": {
-    "title": "About Us",
-    "content": "NutriApp Integral is a platform designed to provide individuals looking to lose weight with guidance on maintaining healthy habits, while simultaneously allowing nutritionists to generate extra income."
-  },
-  "home": {
-    "title": "Welcome",
-    "content": "Welcome to NutriApp Integral"
-  },
-  "page-not-found": {
-    "title": "Page Not Found",
-    "content": "The path {unavailable-route} is not available.",
-    "go-home": "Go Home"
-  },
-  "errors": {
-    "occurred": "Errors occurred"
+    "about": "About",
+    "appointments": "Appointments",
+    "availability": "Availability"
   },
   "appointments": {
     "common": { "actions": "Actions", "cancel": "Cancel", "empty": "No data", "error": "Something went wrong" },
@@ -36,10 +17,18 @@
     "form": {
       "title": "Book appointment",
       "submit": "Book",
+      "slot": "Time slot",
+      "choose": "Choose a time slot",
       "selectSlot": "Select an available slot first",
       "reasonRequired": "Reason is required"
     },
-    "list": { "title": "My appointments", "new": "New appointment", "consultation": "Register consultation" }
+    "list": {
+      "title": "My appointments",
+      "new": "New appointment",
+      "consultation": "Register consultation",
+      "confirmCancel": "Cancel this appointment?",
+      "cancelled": "Appointment cancelled"
+    }
   },
   "consultations": {
     "title": "Register consultation",

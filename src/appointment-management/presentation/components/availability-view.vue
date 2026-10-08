@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useAppointmentStore } from '../../application/appointment.store.js';
+import { useAppointmentStore } from '@/appointment-management/application/appointment.store.js';
 
 const emit = defineEmits(['selected']);
 const { t } = useI18n();
@@ -15,20 +15,18 @@ function selectAvailability(id) {
   emit('selected', id);
 }
 
-onMounted(() => {
-  if (!store.availabilityLoaded) loadAvailability();
-});
+onMounted(loadAvailability);
 </script>
 
 <template>
-  <section>
+  <section class="p-4">
     <h2>{{ t('appointments.availability.title') }}</h2>
-    <pv-data-table :value="store.availabilities" data-key="id" :empty-message="t('common.empty')">
+    <pv-data-table :value="store.availabilities" data-key="id" :empty-message="t('appointments.common.empty')">
       <pv-column field="date" :header="t('appointments.date')" />
       <pv-column field="startTime" :header="t('appointments.start')" />
       <pv-column field="endTime" :header="t('appointments.end')" />
       <pv-column field="nutritionistId" :header="t('appointments.nutritionist')" />
-      <pv-column :header="t('common.actions')">
+      <pv-column :header="t('appointments.common.actions')">
         <template #body="{ data }">
           <pv-button
               :label="t('appointments.availability.select')"

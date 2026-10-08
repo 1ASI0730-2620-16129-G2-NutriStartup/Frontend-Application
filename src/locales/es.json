@@ -1,28 +1,9 @@
 {
   "option": {
     "home": "Inicio",
-    "about": "Acerca de"
-  },
-  "authoring-phrase": {
-    "intro": "Hecho con",
-    "use": "utilizando",
-    "author": "por el Equipo de Desarrollo de {brand}"
-  },
-  "about": {
-    "title": "Acerca de Nosotros",
-    "content": "NutriApp Integral es una plataforma que esta diseñada para que las personas que quieran reducir su peso obtengan acompañamiento para mantener hábitos saludables, al mismo tiempo que los nutricionistas puedan generar un ingreso extra."
-  },
-  "home": {
-    "title": "Inicio",
-    "content": "Bienvenido a NutriApp Integral"
-  },
-  "page-not-found": {
-    "title": "Página no encontrada",
-    "content": "La ruta {unavailable-route} no está disponible.",
-    "go-home": "Ir al Inicio"
-  },
-  "errors": {
-    "occurred": "Ocurrieron errores"
+    "about": "Acerca de",
+    "appointments": "Citas",
+    "availability": "Disponibilidad"
   },
   "appointments": {
     "common": { "actions": "Acciones", "cancel": "Cancelar", "empty": "Sin datos", "error": "Ocurrió un error" },
@@ -36,10 +17,18 @@
     "form": {
       "title": "Reservar cita",
       "submit": "Reservar",
+      "slot": "Horario",
+      "choose": "Elige un horario",
       "selectSlot": "Selecciona un horario disponible primero",
       "reasonRequired": "El motivo es obligatorio"
     },
-    "list": { "title": "Mis citas", "new": "Nueva cita", "consultation": "Registrar consulta" }
+    "list": {
+      "title": "Mis citas",
+      "new": "Nueva cita",
+      "consultation": "Registrar consulta",
+      "confirmCancel": "¿Cancelar esta cita?",
+      "cancelled": "Cita cancelada"
+    }
   },
   "consultations": {
     "title": "Registrar consulta",

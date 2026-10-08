@@ -1,10 +1,10 @@
 <script setup>
-import { computed, onMounted, reactive } from 'vue';
+import { computed, onMounted, reactive, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import { useAppointmentStore } from '../../application/appointment.store.js';
+import { useAppointmentStore } from '@/appointment-management/application/appointment.store.js';
 
-const USER_ID = 1; // TODO: reemplazar por el usuario autenticado (IAM BC)
+const USER_ID = 1; // TODO: reemplazar por el usuario autenticado
 
 const { t } = useI18n();
 const router = useRouter();
@@ -12,51 +12,49 @@ const route = useRoute();
 const store = useAppointmentStore();
 const errors = reactive([]);
 
-const form = reactive({
-  nutritionistId: null,
-  date: '',
-  startTime: '',
-  endTime: '',
-  reason: '',
-});
+const selectedId = ref(route.query.availabilityId ? String(route.query.availabilityId) : null);
+const reason = ref('');
 
-const availabilityId = computed(() => Number(route.query.availabilityId) || null);
+const slotOptions = computed(() =>
+    store.availabilities
+        .filter((a) => a.isAvailable())
+        .map((a) => ({
+          id: String(a.id),
+          label: `${a.date} | ${a.startTime} - ${a.endTime} | ${t('appointments.nutritionist')} ${a.nutritionistId}`,
+        }))
+);
 
-onMounted(async () => {
-  if (!store.availabilityLoaded) await store.getAvailability();
-  const slot = store.availabilities.find((a) => a.id === availabilityId.value);
-  if (slot) {
-    form.nutritionistId = slot.nutritionistId;
-    form.date = slot.date;
-    form.startTime = slot.startTime;
-    form.endTime = slot.endTime;
-  }
+const selectedSlot = computed(
+    () => store.availabilities.find((a) => String(a.id) === selectedId.value) ?? null
+);
+
+onMounted(() => {
+  store.getAvailability();
 });
 
 function validate() {
   errors.length = 0;
-  if (!form.nutritionistId || !form.date || !form.startTime || !form.endTime) {
-    errors.push(t('appointments.form.selectSlot'));
-  }
-  if (!form.reason.trim()) errors.push(t('appointments.form.reasonRequired'));
+  if (!selectedSlot.value) errors.push(t('appointments.form.selectSlot'));
+  if (!reason.value.trim()) errors.push(t('appointments.form.reasonRequired'));
   return errors.length === 0;
 }
 
 async function createAppointment() {
   if (!validate()) return;
+  const slot = selectedSlot.value;
   try {
     await store.createAppointment({
       userId: USER_ID,
-      nutritionistId: form.nutritionistId,
-      date: form.date,
-      startTime: form.startTime,
-      endTime: form.endTime,
+      nutritionistId: slot.nutritionistId,
+      date: slot.date,
+      startTime: slot.startTime,
+      endTime: slot.endTime,
       status: 'PENDING',
-      reason: form.reason,
+      reason: reason.value,
     });
     navigateToAppointments();
   } catch {
-    errors.push(t('common.error'));
+    errors.push(t('appointments.common.error'));
   }
 }
 
@@ -66,7 +64,7 @@ function navigateToAppointments() {
 </script>
 
 <template>
-  <section class="form">
+  <section class="form p-4">
     <h2>{{ t('appointments.form.title') }}</h2>
 
     <ul v-if="errors.length" class="errors">
@@ -74,24 +72,23 @@ function navigateToAppointments() {
     </ul>
 
     <div class="field">
-      <label>{{ t('appointments.date') }}</label>
-      <pv-input-text v-model="form.date" readonly />
-    </div>
-    <div class="field">
-      <label>{{ t('appointments.start') }} - {{ t('appointments.end') }}</label>
-      <pv-input-text :model-value="`${form.startTime} - ${form.endTime}`" readonly />
-    </div>
-    <div class="field">
-      <label>{{ t('appointments.nutritionist') }}</label>
-      <pv-input-text :model-value="form.nutritionistId" readonly />
+      <label>{{ t('appointments.form.slot') }}</label>
+      <pv-select
+          v-model="selectedId"
+          :options="slotOptions"
+          option-label="label"
+          option-value="id"
+          :placeholder="t('appointments.form.choose')"
+          class="w-full"
+      />
     </div>
     <div class="field">
       <label>{{ t('appointments.reason') }}</label>
-      <pv-textarea v-model="form.reason" rows="4" />
+      <pv-textarea v-model="reason" rows="4" />
     </div>
 
     <div class="actions">
-      <pv-button :label="t('common.cancel')" severity="secondary" @click="navigateToAppointments" />
+      <pv-button :label="t('appointments.common.cancel')" severity="secondary" @click="navigateToAppointments" />
       <pv-button :label="t('appointments.form.submit')" @click="createAppointment" />
     </div>
   </section>

@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
-import { AppointmentApi } from '../infrastructure/appointment-api.js';
-import { AppointmentAssembler } from '../infrastructure/appointment.assembler.js';
-import { AvailabilityAssembler } from '../infrastructure/availability.assembler.js';
-import { ConsultationAssembler } from '../infrastructure/consultation.assembler.js';
+import { AppointmentApi } from '@/appointment-management/infrastructure/appointment-api.js';
+import { AppointmentAssembler } from '@/appointment-management/infrastructure/appointment.assembler.js';
+import { AvailabilityAssembler } from '@/appointment-management/infrastructure/availability.assembler.js';
+import { ConsultationAssembler } from '@/appointment-management/infrastructure/consultation.assembler.js';
 
 const api = new AppointmentApi();
 
@@ -50,13 +50,29 @@ export const useAppointmentStore = defineStore('appointment', () => {
     }
 
     function cancelAppointment(id) {
+        const appointment = appointments.value.find((a) => String(a.id) === String(id));
+        if (!appointment) return Promise.reject(new Error('Appointment not found'));
         return api
-            .cancelAppointment(id)
+            .cancelAppointment(appointment)
             .then(() => {
-                const appointment = appointments.value.find((a) => a.id === id);
-                if (appointment) appointment.cancel();
+                appointment.cancel();
             })
-            .catch(handleError);
+            .catch((error) => {
+                handleError(error);
+                throw error;
+            });
+    }
+
+    function deleteAppointment(id) {
+        return api
+            .deleteAppointment(id)
+            .then(() => {
+                appointments.value = appointments.value.filter((a) => String(a.id) !== String(id));
+            })
+            .catch((error) => {
+                handleError(error);
+                throw error;
+            });
     }
 
     function getAvailability(nutritionistId) {
@@ -75,6 +91,7 @@ export const useAppointmentStore = defineStore('appointment', () => {
             .then((response) => {
                 const created = ConsultationAssembler.toEntityFromResource(response.data);
                 consultations.value.push(created);
+                consultationsLoaded.value = true;
                 return created;
             })
             .catch((error) => {
@@ -87,7 +104,7 @@ export const useAppointmentStore = defineStore('appointment', () => {
         appointments, availabilities, consultations, errors,
         appointmentsLoaded, availabilityLoaded, consultationsLoaded,
         appointmentsCount, availabilityCount, consultationsCount,
-        createAppointment, getAppointmentsByUser, cancelAppointment,
+        createAppointment, getAppointmentsByUser, cancelAppointment, deleteAppointment,
         getAvailability, registerConsultation,
     };
 });

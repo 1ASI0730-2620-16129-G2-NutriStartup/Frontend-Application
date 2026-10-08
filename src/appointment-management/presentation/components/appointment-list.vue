@@ -2,20 +2,36 @@
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import { useAppointmentStore } from '../../application/appointment.store.js';
+import { useConfirm } from 'primevue/useconfirm';
+import { useToast } from 'primevue/usetoast';
+import { useAppointmentStore } from '@/appointment-management/application/appointment.store.js';
 
-const USER_ID = 1; // TODO: usuario autenticado
+const USER_ID = 1; // TODO: reemplazar por el usuario autenticado
 
 const { t } = useI18n();
 const router = useRouter();
+const confirm = useConfirm();
+const toast = useToast();
 const store = useAppointmentStore();
 
 function loadAppointments() {
   store.getAppointmentsByUser(USER_ID);
 }
 
+function newAppointment() {
+  router.push({ name: 'appointment-new' });
+}
+
 function cancelAppointment(id) {
-  store.cancelAppointment(id);
+  confirm.require({
+    message: t('appointments.list.confirmCancel'),
+    header: t('appointments.common.cancel'),
+    icon: 'pi pi-exclamation-triangle',
+    accept: async () => {
+      await store.cancelAppointment(id);
+      toast.add({ severity: 'success', summary: t('appointments.list.cancelled'), life: 3000 });
+    },
+  });
 }
 
 function registerConsultation(id) {
@@ -26,19 +42,19 @@ onMounted(loadAppointments);
 </script>
 
 <template>
-  <section>
+  <section class="p-4">
     <div class="header">
       <h2>{{ t('appointments.list.title') }} ({{ store.appointmentsCount }})</h2>
-      <pv-button :label="t('appointments.list.new')" @click="router.push({ name: 'availability' })" />
+      <pv-button :label="t('appointments.list.new')" @click="newAppointment" />
     </div>
 
-    <pv-data-table :value="store.appointments" data-key="id" :empty-message="t('common.empty')">
+    <pv-data-table :value="store.appointments" data-key="id" :empty-message="t('appointments.common.empty')">
       <pv-column field="date" :header="t('appointments.date')" />
       <pv-column field="startTime" :header="t('appointments.start')" />
       <pv-column field="endTime" :header="t('appointments.end')" />
       <pv-column field="reason" :header="t('appointments.reason')" />
       <pv-column field="status" :header="t('appointments.status')" />
-      <pv-column :header="t('common.actions')">
+      <pv-column :header="t('appointments.common.actions')">
         <template #body="{ data }">
           <div class="row-actions">
             <pv-button
@@ -49,7 +65,7 @@ onMounted(loadAppointments);
                 @click="registerConsultation(data.id)"
             />
             <pv-button
-                :label="t('common.cancel')"
+                :label="t('appointments.common.cancel')"
                 size="small"
                 severity="danger"
                 :disabled="!data.isAvailable()"
