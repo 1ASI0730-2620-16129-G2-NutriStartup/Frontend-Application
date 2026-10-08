@@ -24,10 +24,20 @@ export class NutritionApi extends BaseApi {
         return this.#nutritionPlanEndpoint.getById(id);
     }
     createNutritionPlan(resource) {
-        return this.#nutritionPlanEndpoint.create(resource);
+        const plan = {...resource};
+        delete plan.id;
+        return this.#nutritionPlanEndpoint.create({
+            ...plan,
+            startDate: plan.startDate.toISOString(),
+            endDate: plan.endDate.toISOString(),
+        });
     }
     updateNutritionPlan(resource) {
-        return this.#nutritionPlanEndpoint.update(resource);
+        return this.#nutritionPlanEndpoint.update(resource.id, {
+            ...resource,
+            startDate: resource.startDate.toISOString(),
+            endDate: resource.endDate.toISOString(),
+        });
     }
     deleteNutritionPlan(id) {
         return this.#nutritionPlanEndpoint.delete(id);
