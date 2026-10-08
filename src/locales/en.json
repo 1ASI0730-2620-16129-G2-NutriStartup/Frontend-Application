@@ -6,6 +6,23 @@
     "meal-plans": "Meal Plans",
     "food-recommendations": "Food Recommendations"
   },
+  "dashboard": {
+    "personal-space": "My personal space",
+    "personal-section": "MY WELLBEING",
+    "professional-space": "My professional space",
+    "professional-section": "MY SPACE",
+    "free-plan": "Free plan",
+    "professional-account": "Professional account",
+    "menu": {
+      "home": "Home",
+      "plan": "My plan",
+      "meals": "Meals",
+      "progress": "Progress",
+      "nutritionist": "Nutritionist",
+      "patients": "Patients",
+      "plans": "Plans"
+    }
+  },
   "authoring-phrase": {
     "intro": "Made with",
     "use": "using",

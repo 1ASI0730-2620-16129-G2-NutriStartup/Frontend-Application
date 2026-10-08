@@ -6,6 +6,23 @@
     "meal-plans": "Planes de Comidas",
     "food-recommendations": "Recomendaciones de Alimentos"
   },
+  "dashboard": {
+    "personal-space": "Mi espacio personal",
+    "personal-section": "MI BIENESTAR",
+    "professional-space": "Mi espacio profesional",
+    "professional-section": "MI ESPACIO",
+    "free-plan": "Plan gratuito",
+    "professional-account": "Cuenta profesional",
+    "menu": {
+      "home": "Inicio",
+      "plan": "Mi plan",
+      "meals": "Comidas",
+      "progress": "Progreso",
+      "nutritionist": "Nutricionista",
+      "patients": "Pacientes",
+      "plans": "Planes"
+    }
+  },
   "authoring-phrase": {
     "intro": "Hecho con",
     "use": "utilizando",
