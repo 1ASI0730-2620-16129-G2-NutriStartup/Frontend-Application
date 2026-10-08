@@ -45,7 +45,10 @@ createApp(App)
         ripple: true,
         license: primeUiLicenseKey,
         theme: {
-            preset: Material
+            preset: Material,
+            options: {
+                darkModeSelector: 'none'
+            }
         }
     })
     .use(ConfirmationService)
