@@ -15,6 +15,7 @@ const items = [
 
   {label: 'option.nutrition-plans', to: '/nutrition-nutritionist/nutrition-plans-nutritionist'},
   {label: 'option.meal-plans', to: '/nutrition-nutritionist/meal-plans-nutritionist'},
+  {label: 'option.food-recommendations', to: '/nutrition-nutritionist/food-recommendations-nutritionist'},
 ];
 </script>
 
