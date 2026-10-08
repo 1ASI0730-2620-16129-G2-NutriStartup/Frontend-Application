@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './app.vue'
+import App from './App.vue'
 import PrimeVue from 'primevue/config'
 import Material from '@primeuix/themes/material'
 import 'primeflex/primeflex.css'
@@ -45,7 +45,10 @@ createApp(App)
         ripple: true,
         license: primeUiLicenseKey,
         theme: {
-            preset: Material
+            preset: Material,
+            options: {
+                darkModeSelector: 'none'
+            }
         }
     })
     .use(ConfirmationService)
