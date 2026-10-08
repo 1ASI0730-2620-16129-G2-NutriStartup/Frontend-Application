@@ -8,7 +8,8 @@ const router  = useRouter();
 </script>
 
 <template>
-  <NutritionistView />
+  <!--<NutritionistView />-->
+  <PatientView />
 </template>
 
 <style scoped>
