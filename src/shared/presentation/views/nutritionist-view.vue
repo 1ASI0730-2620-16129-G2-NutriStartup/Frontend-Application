@@ -14,6 +14,7 @@ const items = [
   {label: 'option.about', to: '/about'},
 
   {label: 'option.nutrition-plans', to: '/nutrition-nutritionist/nutrition-plans-nutritionist'},
+  {label: 'option.meal-plans', to: '/nutrition-nutritionist/meal-plans-nutritionist'},
 ];
 </script>
 
