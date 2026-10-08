@@ -1,3 +1,9 @@
 {
-
+  "appointments": [],
+  "availabilities": [
+    { "id": 1, "nutritionistId": 1, "date": "2026-10-12", "startTime": "09:00", "endTime": "10:00", "available": true },
+    { "id": 2, "nutritionistId": 1, "date": "2026-10-12", "startTime": "10:00", "endTime": "11:00", "available": true },
+    { "id": 3, "nutritionistId": 2, "date": "2026-10-13", "startTime": "15:00", "endTime": "16:00", "available": true }
+  ],
+  "consultations": []
 }
