@@ -1,82 +1,34 @@
 <script setup>
+import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
 import LanguageSwitcher from "@/shared/presentation/components/language-switcher.vue";
-import {ref} from "vue";
-import {useI18n} from "vue-i18n";
-import FooterContent from "@/shared/presentation/components/footer-content.vue";
-const { t } = useI18n();
+import DashboardShell from "@/shared/presentation/components/dashboard-shell.vue";
 
-const drawer = ref(false);
-const toggleDrawer = () => {
-  drawer.value = !drawer.value;
-}
-const items = [
-  {label: 'option.home', to: '/home'},
-  {label: 'option.about', to: '/about'},
+const { t } = useI18n();
+const activeItem = ref('home');
+const items = computed(() => [
+  { key: 'home', label: t('dashboard.menu.home'), icon: 'pi pi-home' },
+  { key: 'plan', label: t('dashboard.menu.plan'), icon: 'pi pi-calendar' },
+  { key: 'meals', label: t('dashboard.menu.meals'), icon: 'pi pi-apple' },
+  { key: 'progress', label: t('dashboard.menu.progress'), icon: 'pi pi-chart-bar' },
+  { key: 'nutritionist', label: t('dashboard.menu.nutritionist'), icon: 'pi pi-user' },
   /*Aquí deben agregar más opciones*/
-];
+]);
 </script>
 
 <template>
-  <pv-toast/>
-  <pv-confirm-dialog/>
-  <header class="type-letter absolute top-0 left-0 w-full">
-    <pv-toolbar class="fo-color header-toolbar">
-      <template #start>
-        <pv-button class="p-button-text menu-button" icon="pi pi-bars" @click="toggleDrawer"/>
-        <h3>NutriApp Integral</h3>
-      </template>
-      <template #end>
-        <div class="toolbar-options flex-column mr-3">
-          <pv-button v-for="item in items" :key="item.label" class="toolbar-nav-button" as-child v-slot="slotProps">
-            <router-link :to="item.to" :class="slotProps['class']">{{ t(item.label) }}</router-link>
-          </pv-button>
-        </div>
-        <language-switcher/>
-      </template>
-    </pv-toolbar>
-    <pv-drawer v-model:visible="drawer"/>
-  </header>
-  <main class="mt-7">
-    <router-view/>
-  </main>
-  <footer-content/>
+  <dashboard-shell
+    :workspace-label="t('dashboard.personal-space')"
+    :sidebar-label="t('dashboard.personal-section')"
+    user-name="Camila Torres"
+    :user-plan="t('dashboard.free-plan')"
+    :menu-items="items"
+    :active-item="activeItem"
+    @select-menu="activeItem = $event"
+  >
+    <template #topbar-actions>
+      <LanguageSwitcher />
+    </template>
+  </dashboard-shell>
 </template>
 
-<style scoped>
-header h3 {
-  color: white;
-  font-size: 26px;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.fo-color {
-  background-color: #64acfc;
-}
-
-:deep(.header-toolbar) {
-  border: none;
-  border-radius: 0;
-}
-
-.toolbar-options :deep(.toolbar-nav-button) {
-  background-color: #64acfc;
-  border: none;
-}
-
-.toolbar-options :deep(a) {
-  text-decoration: none;
-}
-
-.type-letter {
-  letter-spacing: 0.05em;
-  font-family: Arial, sans-serif;
-}
-
-.menu-button {
-  background-color: white;
-  color: black;
-  border-color: white;
-  margin-right: 0.75rem;
-}
-</style>

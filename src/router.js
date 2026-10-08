@@ -1,5 +1,4 @@
 import {createRouter, createWebHistory} from "vue-router";
-import Home from "@/shared/presentation/views/home.vue";
 import NutritionistView from "@/shared/presentation/views/nutritionist-view.vue";
 import PatientView from "@/shared/presentation/views/patient-view.vue";
 
@@ -11,7 +10,7 @@ const routes =
         {
             path: '/home',
             name: 'home',
-            component: Home,
+            component: NutritionistView,
             meta: { title: 'Home' }
         },
         {
@@ -25,12 +24,6 @@ const routes =
             redirect: '/home'
         },
         {
-            path: '/:pageMatch(.*)*',
-            name: 'not-found',
-            component: pageNotFound,
-            meta: { title: 'Page Not Found' }
-        },
-        {
             path: '/user1-view',
             name: 'user1',
             component: NutritionistView,
@@ -41,6 +34,12 @@ const routes =
             name: 'user2',
             component: PatientView,
             meta: { title: 'User 2' }
+        },
+        {
+            path: '/:pageMatch(.*)*',
+            name: 'not-found',
+            component: pageNotFound,
+            meta: { title: 'Page Not Found' }
         },
     ];
 
