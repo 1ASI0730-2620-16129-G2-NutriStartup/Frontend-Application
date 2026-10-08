@@ -19,13 +19,13 @@ const useNutritionStore = defineStore("nutrition", () => {
     const foodRecommendationsLoaded = ref(false);
 
     const nutritionPlansCount = computed(() => {
-        return nutritionPlansLoaded ? nutritionPlans.value.length : 0;
+        return nutritionPlansLoaded.value ? nutritionPlans.value.length : 0;
     });
     const mealPlansCount = computed(() => {
-        return mealPlansLoaded ? mealPlans.value.length : 0;
+        return mealPlansLoaded.value ? mealPlans.value.length : 0;
     });
     const foodRecommendationsCount = computed(() => {
-        return foodRecommendationsLoaded ? foodRecommendations.value.length : 0;
+        return foodRecommendationsLoaded.value ? foodRecommendations.value.length : 0;
     });
 
     function fetchNutritionPlans() {
@@ -120,11 +120,47 @@ const useNutritionStore = defineStore("nutrition", () => {
         });
     }
 
+    function fetchFoodRecommendations() {
+        nutritionApi.getFoodRecommendations().then((response) => {
+            foodRecommendations.value = FoodRecommendationAssembler.toEntitiesFromResponse(response);
+            foodRecommendationsLoaded.value = true;
+            console.log(foodRecommendationsLoaded.value);
+            console.log(foodRecommendations.value);
+        }).catch((error) => {
+            errors.value.push(error);
+        });
+    }
+    function getFoodRecommendationById(id) {
+        let idNum = parseInt(id);
+        return foodRecommendations.value.find(food => food["id"] === idNum);
+    }
     function addFoodRecommendation(foodRecommendation) {
-        nutritionApi.createMealPlan(foodRecommendation).then((response) => {
+        nutritionApi.createFoodRecommendation(foodRecommendation).then((response) => {
             const resource = response.data;
             const newFoodRecommendation = FoodRecommendationAssembler.toEntityFromResource(resource);
-            foodRecommendations.value.push(foodRecommendation);
+            foodRecommendations.value.push(newFoodRecommendation);
+        }).catch((error) => {
+            errors.value.push(error);
+        });
+    }
+    function updateFoodRecommendation(foodRecommendation) {
+        nutritionApi.updateFoodRecommendation(foodRecommendation).then((response) => {
+            const resource = response.data;
+            const updatedFoodRecommendation = FoodRecommendationAssembler.toEntityFromResource(resource);
+            const index = foodRecommendations.value.findIndex(c => c["id"] === updatedFoodRecommendation.id);
+            if (index !== -1) {
+                foodRecommendations.value[index] = updatedFoodRecommendation;
+            }
+        }).catch((error) => {
+            errors.value.push(error);
+        });
+    }
+    function deleteFoodRecommendation(foodRecommendation) {
+        nutritionApi.deleteFoodRecommendation(foodRecommendation.id).then((response) => {
+            const index = foodRecommendations.value.findIndex(c => c["id"] === foodRecommendation.id);
+            if (index !== -1) {
+                foodRecommendations.value.splice(index, 1);
+            }
         }).catch((error) => {
             errors.value.push(error);
         });
@@ -151,7 +187,11 @@ const useNutritionStore = defineStore("nutrition", () => {
         addMealPlan,
         updateMealPlan,
         deleteMealPlan,
+        fetchFoodRecommendations,
+        getFoodRecommendationById,
         addFoodRecommendation,
+        updateFoodRecommendation,
+        deleteFoodRecommendation,
     }
 });
 
