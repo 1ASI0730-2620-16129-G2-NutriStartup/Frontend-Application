@@ -50,5 +50,27 @@
     "status": "Estado",
     "save": "Guardar",
     "cancel": "Cancelar"
+  },
+  "meal-plans": {
+    "title": "Planes de Comidas",
+    "id": "ID",
+    "nutrition-id": "ID de Plan de Nutrición",
+    "type": "Tipo de Comida",
+    "description": "Descripción",
+    "calories": "Calorías",
+    "actions": "Acciones",
+    "new": "Nuevo Plan de Comida",
+    "confirm-delete": "¿Estás seguro de que quieres eliminar {title}?",
+    "delete-header": "Confirmar Eliminación"
+  },
+  "meal-plan": {
+    "new-title": "Crear Nuevo Plan de Comida",
+    "edit-title": "Editar Plan de Comida",
+    "nutrition-id": "ID de Plan de Nutrición",
+    "type": "Tipo de Comida",
+    "description": "Descripción",
+    "calories": "Calorías",
+    "save": "Guardar",
+    "cancel": "Cancelar"
   }
 }
