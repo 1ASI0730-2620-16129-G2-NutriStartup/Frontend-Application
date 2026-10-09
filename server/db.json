@@ -26,6 +26,15 @@
       "startDate": "2026-10-01",
       "endDate": "2026-12-31",
       "status": "Inactive"
+    },
+    {
+      "name": "El cuerpo perfecto",
+      "description": "Aumentar mi masa muscular y disminuir mi masa grasa hasta obtener valores optimos.",
+      "objective": "Mejorar mi salud y mi apariencia",
+      "startDate": "2026-10-08T00:00:00.000Z",
+      "endDate": "2026-10-10T00:00:00.000Z",
+      "status": "Activo",
+      "id": 4
     }
   ],
   "mealPlans": [
