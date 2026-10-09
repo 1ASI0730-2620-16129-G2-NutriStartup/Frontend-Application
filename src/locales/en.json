@@ -5,6 +5,11 @@
     "appointments": "Appointments",
     "availability": "Availability"
   },
+  "workspace": {
+    "patient": "Patient workspace",
+    "nutritionist": "Nutritionist workspace",
+    "navigation": "NAVIGATION"
+  },
   "appointments": {
     "common": { "actions": "Actions", "cancel": "Cancel", "empty": "No data", "error": "Something went wrong" },
     "date": "Date",

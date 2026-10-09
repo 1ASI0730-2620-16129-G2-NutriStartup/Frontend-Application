@@ -1,5 +1,4 @@
 import {createRouter, createWebHistory} from "vue-router";
-import Home from "@/shared/presentation/views/home.vue";
 import NutritionistView from "@/shared/presentation/views/nutritionist-view.vue";
 import PatientView from "@/shared/presentation/views/patient-view.vue";
 
@@ -16,7 +15,7 @@ const routes =
         {
             path: '/home',
             name: 'home',
-            component: Home,
+            component: NutritionistView,
             meta: { title: 'Home' }
         },
         {

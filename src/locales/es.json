@@ -5,6 +5,11 @@
     "appointments": "Citas",
     "availability": "Disponibilidad"
   },
+  "workspace": {
+    "patient": "Espacio del paciente",
+    "nutritionist": "Espacio del nutricionista",
+    "navigation": "NAVEGACIÓN"
+  },
   "appointments": {
     "common": { "actions": "Acciones", "cancel": "Cancelar", "empty": "Sin datos", "error": "Ocurrió un error" },
     "date": "Fecha",

@@ -46,7 +46,7 @@ const activeLabel = computed(() => props.menuItems.find((item) => item.key === p
 </template>
 
 <style scoped>
-:global(html), :global(body), :global(#app) { min-width: 320px; min-height: 100%; margin: 0; }
+:global(html), :global(body) { min-width: 320px; min-height: 100%; margin: 0; }
 :global(html) { color-scheme: light; }
 .dashboard-shell { --sidebar-green: #104b36; --deep-green: #174b37; --soft-green: #e6f1e9; --pale-lime: #d6e9a5; display: flex; min-height: 100vh; color: #334155; background: #f4f7f2; font-family: system-ui, sans-serif; }
 .sidebar { position: sticky; top: 0; display: flex; flex: 0 0 252px; flex-direction: column; box-sizing: border-box; width: 252px; height: 100vh; padding: 24px 16px; color: #f1f6ec; background: var(--sidebar-green); }

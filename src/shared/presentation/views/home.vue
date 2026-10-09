@@ -16,7 +16,7 @@ const { t } = useI18n();
 <style scoped>
 .letter-style {
   letter-spacing: 0.05em;
-  font-family: Arial, sans-serif;
+  font-family: inherit;
 }
 
 h1 {
