@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
 import NutritionistView from "@/shared/presentation/views/nutritionist-view.vue";
 import PatientView from "@/shared/presentation/views/patient-view.vue";
-import ProgressMonitoringView from "@/presentation/views/progress-monitoring-view.vue";
+
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 
