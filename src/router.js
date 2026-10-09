@@ -1,12 +1,18 @@
 import {createRouter, createWebHistory} from "vue-router";
 import NutritionistView from "@/shared/presentation/views/nutritionist-view.vue";
 import PatientView from "@/shared/presentation/views/patient-view.vue";
+import iamRoutes from "@/iam/presentation/iam-routes.js";
+import { authenticationGuard } from "@/iam/infrastructure/authentication.guard.js";
 
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 
 const routes =
     [
+        ...iamRoutes.map((route) => ({
+            ...route,
+            path: `/iam/${route.path}`,
+        })),
         {
             path: '/home',
             name: 'home',
@@ -47,6 +53,8 @@ const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: routes,
 });
+
+router.beforeEach(authenticationGuard);
 
 router.beforeEach((to, from) => {
     console.log(`Navigating from ${from.name} to ${to.name}`);
