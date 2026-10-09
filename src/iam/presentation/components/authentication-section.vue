@@ -2,13 +2,17 @@
 import useIamStore from "@/iam/application/iam.store.js";
 import {useRouter} from "vue-router";
 import {computed} from "vue";
+import {useI18n} from "vue-i18n";
+import {useCurrentUserStore} from "@/shared/application/current-user.store.js";
 
 const router = useRouter();
+const {t} = useI18n();
 const store = useIamStore();
+const currentUserStore = useCurrentUserStore();
 const {signOut} = store;
 
 let isSignedIn = computed(() => !!store.isSignedIn);
-let currentUsername = computed(() => store.currentUsername);
+let currentDisplayName = computed(() => currentUserStore.user?.name || store.currentUsername);
 
 /**
  * Navigate to the sign-in page.
@@ -36,18 +40,40 @@ function performSignOut() {
 </script>
 
 <template>
-  <div>
-    <div v-if="isSignedIn">
-      <span class="p-button-text bg-primary"> Welcome, {{ currentUsername }}</span>
-      <pv-button class="bg-primary" text @click="performSignOut">Sign Out</pv-button>
+  <div class="authentication-section">
+    <div v-if="isSignedIn" class="auth-actions">
+      <span class="welcome-message">{{ t('iam.welcome', { name: currentDisplayName }) }}</span>
+      <pv-button class="sign-out-button" text @click="performSignOut">{{ t('iam.signOutAction') }}</pv-button>
     </div>
-    <div v-else>
-      <pv-button class="bg-primary" text @click="performSignIn">Sign In</pv-button>
-      <pv-button class="bg-primary" text @click="performSignUp">Sign Up</pv-button>
+    <div v-else class="auth-actions">
+      <pv-button class="sign-out-button" text @click="performSignIn">{{ t('iam.signInAction') }}</pv-button>
+      <pv-button class="sign-out-button" text @click="performSignUp">{{ t('iam.signUpAction') }}</pv-button>
     </div>
   </div>
 </template>
 
 <style scoped>
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
 
+.welcome-message {
+  color: #355144;
+  font-size: 12px;
+}
+
+.auth-actions :deep(.sign-out-button) {
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  background: #39bca3;
+  font-size: 13px;
+}
+
+.auth-actions :deep(.sign-out-button:hover) {
+  background: #2da990;
+}
 </style>
