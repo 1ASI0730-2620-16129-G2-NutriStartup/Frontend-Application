@@ -5,6 +5,7 @@ import iamRoutes from "@/iam/presentation/iam-routes.js";
 import { authenticationGuard } from "@/iam/infrastructure/authentication.guard.js";
 import nutritionNutritionistRoutes from "@/nutrition/presentation/nutrition-nutritionist-routes.js";
 import nutritionPatientRoutes from "@/nutrition/presentation/nutrition-patient-routes.js";
+import Home from "@/shared/presentation/views/home.vue";
 
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
@@ -21,9 +22,7 @@ const routes =
         })),
         {
             path: '/home',
-            name: 'home',
-            component: NutritionistView,
-            meta: { title: 'Home' }
+            redirect: { name: 'user1-home' }
         },
         {
             path: '/about',
@@ -63,13 +62,27 @@ const routes =
             path: '/user1-view',
             name: 'user1',
             component: NutritionistView,
-            meta: { title: 'User 1' }
+            meta: { title: 'User 1' },
+            children: [
+                { path: '', name: 'user1-home', component: Home, meta: { title: 'Home', menuKey: 'home' } },
+                ...nutritionNutritionistRoutes.map((route) => ({
+                    ...route,
+                    meta: { ...route.meta, menuKey: route.path.startsWith('nutrition-plans') ? 'nutrition-plans' : route.path.startsWith('meal-plans') ? 'meal-plans' : 'food-recommendations' }
+                }))
+            ]
         },
         {
             path: '/user2-view',
             name: 'user2',
             component: PatientView,
-            meta: { title: 'User 2' }
+            meta: { title: 'User 2' },
+            children: [
+                { path: '', name: 'user2-home', component: Home, meta: { title: 'Home', menuKey: 'home' } },
+                ...nutritionPatientRoutes.map((route) => ({
+                    ...route,
+                    meta: { ...route.meta, menuKey: route.path.startsWith('nutrition-plans') ? 'nutrition-plans' : route.path.startsWith('meal-plans') ? 'meal-plans' : 'food-recommendations' }
+                }))
+            ]
         },
         {
             path: '/:pageMatch(.*)*',

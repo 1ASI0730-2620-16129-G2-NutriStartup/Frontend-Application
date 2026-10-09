@@ -24,7 +24,9 @@ const menuItems = computed(() => [
 ]);
 const activeItem = computed(() => {
   if (showProfile.value) return 'profile';
-  return route.name === 'availability' ? 'availability' : route.name === 'user1' || route.name === 'user2' ? 'home' : 'appointments';
+  return route.name === 'availability'
+    ? 'availability'
+    : ['user1-home', 'user2-home'].includes(route.name) ? 'home' : 'appointments';
 });
 
 function selectMenu(key) {
@@ -33,7 +35,7 @@ function selectMenu(key) {
     return;
   }
   showProfile.value = false;
-  const destinations = { home: workspaceRole.value === 'nutritionist' ? 'user1' : 'user2', appointments: 'appointments', availability: 'availability' };
+  const destinations = { home: workspaceRole.value === 'nutritionist' ? 'user1-home' : 'user2-home', appointments: 'appointments', availability: 'availability' };
   if (destinations[key]) router.push({ name: destinations[key] });
 }
 </script>

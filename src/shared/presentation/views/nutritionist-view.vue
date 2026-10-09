@@ -1,6 +1,6 @@
 <script setup>
-import { computed, ref } from "vue";
-import { useRouter } from 'vue-router';
+import { computed, ref, watch } from "vue";
+import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from "vue-i18n";
 import LanguageSwitcher from "@/shared/presentation/components/language-switcher.vue";
 import DashboardShell from "@/shared/presentation/components/dashboard-shell.vue";
@@ -11,24 +11,26 @@ import AvailabilityView from '@/appointment-management/presentation/components/a
 import { useCurrentUserStore } from '@/shared/application/current-user.store.js';
 
 const { t } = useI18n();
+const route = useRoute();
 const router = useRouter();
 const currentUserStore = useCurrentUserStore();
-const activeItem = ref('home');
+const activeItem = ref(route.meta.menuKey || 'home');
 const items = computed(() => [
   { key: 'home', label: t('dashboard.menu.home'), icon: 'pi pi-home' },
   { key: 'nutrition-plans', label: t('option.nutrition-plans'), icon: 'pi pi-heart' },
   { key: 'meal-plans', label: t('option.meal-plans'), icon: 'pi pi-heart' },
   { key: 'food-recommendations', label: t('option.food-recommendations'), icon: 'pi pi-heart' },
-  { key: 'patients', label: t('dashboard.menu.patients'), icon: 'pi pi-users' },
-  { key: 'plans', label: t('dashboard.menu.plans'), icon: 'pi pi-calendar' },
-  { key: 'progress', label: t('dashboard.menu.progress'), icon: 'pi pi-chart-bar' },
   { key: 'appointments', label: t('option.appointments'), icon: 'pi pi-calendar' },
   { key: 'availability', label: t('option.availability'), icon: 'pi pi-clock' },
   { key: 'profile', label: t('profile.menu'), icon: 'pi pi-id-card' },
-  /*Aquí deben agregar más opciones*/
 ]);
 
-function onSelectMenu(key) {
+watch(() => route.meta.menuKey, (menuKey) => {
+  if (menuKey) activeItem.value = menuKey;
+});
+
+function selectMenu(key) {
+  activeItem.value = key;
   const destinations = {
     home: 'user1-home',
     'nutrition-plans': 'nutrition-plans-nutritionist',
@@ -36,10 +38,6 @@ function onSelectMenu(key) {
     'food-recommendations': 'food-recommendations-nutritionist',
   };
   if (destinations[key]) router.push({ name: destinations[key] });
-}
-
-function selectMenu(key) {
-  activeItem.value = key;
 }
 
 function selectAvailability(id) {
@@ -60,11 +58,11 @@ function selectAvailability(id) {
     <UserProfileManagementView v-if="activeItem === 'profile'" role="nutritionist" />
     <AppointmentList v-else-if="activeItem === 'appointments'" />
     <AvailabilityView v-else-if="activeItem === 'availability'" @selected="selectAvailability" />
+    <router-view v-else />
     <template #topbar-actions>
       <AuthenticationSection />
       <LanguageSwitcher />
     </template>
   </dashboard-shell>
 </template>
-
 

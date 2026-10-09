@@ -65,8 +65,8 @@ server.get('/users/:id', (request, response) => {
 
 server.use(router);
 
-server.listen(3000, () => {
-  console.log('Development API listening at http://localhost:3000/api/v1');
+server.listen(3000, '127.0.0.1', () => {
+  console.log('Development API listening at http://127.0.0.1:3000/api/v1');
 });
 
 function publicUser(user) {

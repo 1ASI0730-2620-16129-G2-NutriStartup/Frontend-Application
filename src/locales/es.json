@@ -3,7 +3,10 @@
     "home": "Inicio",
     "about": "Acerca de",
     "appointments": "Citas",
-    "availability": "Disponibilidad"
+    "availability": "Disponibilidad",
+    "nutrition-plans": "Planes de Nutrición",
+    "meal-plans": "Planes de Comidas",
+    "food-recommendations": "Recomendaciones de Alimentos"
   },
   "iam": {
     "signInTitle": "Iniciar sesión",

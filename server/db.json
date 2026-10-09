@@ -17,11 +17,52 @@
       "role": "nutritionist"
     }
   ],
-  "user_profiles": [],
-  "goals": [],
-  "preferences": [],
-  "restrictions": [],
-  "nutritionist_profiles": [],
+  "user_profiles": [
+    {
+      "first_name": "Ian",
+      "last_name": "Figueroa",
+      "age": 23,
+      "gender": "M",
+      "weight": 85,
+      "height": 1.79,
+      "user_id": "patient-demo-001",
+      "id": 1
+    }
+  ],
+  "goals": [
+    {
+      "type": "Perder grasa corporal",
+      "target_weight": 81,
+      "target_date": "2026-11-09",
+      "status": "Pendiente",
+      "user_profile_id": 1,
+      "id": 1
+    }
+  ],
+  "preferences": [
+    {
+      "dietary_preferences": "Alimentos bajos en carbohidratos",
+      "favorite_foods": "Carne de res y pollo, huevo hervido, fresa y palta",
+      "user_id": "patient-demo-001",
+      "id": 1
+    }
+  ],
+  "restrictions": [
+    {
+      "type": "Alergia hacia mariscos",
+      "description": "Alergia a cangrejos y langostas",
+      "user_id": "patient-demo-001",
+      "id": 1
+    }
+  ],
+  "nutritionist_profiles": [
+    {
+      "specialty": "Especialidad Prueba",
+      "experience_years": 3,
+      "user_id": "nutritionist-demo-001",
+      "id": 1
+    }
+  ],
   "appointments": [
     {
       "id": 2,

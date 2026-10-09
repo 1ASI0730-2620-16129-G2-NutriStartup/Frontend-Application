@@ -3,7 +3,10 @@
     "home": "Home",
     "about": "About",
     "appointments": "Appointments",
-    "availability": "Availability"
+    "availability": "Availability",
+    "nutrition-plans": "Nutrition Plans",
+    "meal-plans": "Meal Plans",
+    "food-recommendations": "Food Recommendations"
   },
   "iam": {
     "signInTitle": "Sign in",

@@ -36,9 +36,7 @@ const useIamStore = defineStore('iam', () => {
                     console.log(`User ${currentUsername.value} signed in successfully.`);
                     errors.value = [];
                     const role = currentUser.role?.toLowerCase();
-                    const destination = role === 'patient'
-                        ? 'user2'
-                        : role === 'nutritionist' ? 'user1' : 'home';
+                    const destination = role === 'patient' ? 'user2-home' : 'user1-home';
                     router.push({ name: destination });
                 } else {
                     isSignedIn.value = false;
