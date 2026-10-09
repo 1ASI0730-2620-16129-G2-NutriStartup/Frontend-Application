@@ -16,6 +16,9 @@ const currentUserStore = useCurrentUserStore();
 const activeItem = ref('home');
 const items = computed(() => [
   { key: 'home', label: t('dashboard.menu.home'), icon: 'pi pi-home' },
+  { key: 'nutrition-plans', label: t('option.nutrition-plans'), icon: 'pi pi-heart' },
+  { key: 'meal-plans', label: t('option.meal-plans'), icon: 'pi pi-heart' },
+  { key: 'food-recommendations', label: t('option.food-recommendations'), icon: 'pi pi-heart' },
   { key: 'patients', label: t('dashboard.menu.patients'), icon: 'pi pi-users' },
   { key: 'plans', label: t('dashboard.menu.plans'), icon: 'pi pi-calendar' },
   { key: 'progress', label: t('dashboard.menu.progress'), icon: 'pi pi-chart-bar' },
@@ -24,6 +27,16 @@ const items = computed(() => [
   { key: 'profile', label: t('profile.menu'), icon: 'pi pi-id-card' },
   /*Aquí deben agregar más opciones*/
 ]);
+
+function onSelectMenu(key) {
+  const destinations = {
+    home: 'user1-home',
+    'nutrition-plans': 'nutrition-plans-nutritionist',
+    'meal-plans': 'meal-plans-nutritionist',
+    'food-recommendations': 'food-recommendations-nutritionist',
+  };
+  if (destinations[key]) router.push({ name: destinations[key] });
+}
 
 function selectMenu(key) {
   activeItem.value = key;
@@ -36,13 +49,13 @@ function selectAvailability(id) {
 
 <template>
   <dashboard-shell
-    :workspace-label="t('dashboard.professional-space')"
-    :sidebar-label="t('dashboard.professional-section')"
-    :user-name="currentUserStore.user?.name || t('dashboard.nutritionist-name')"
-    :user-plan="t('dashboard.professional-account')"
-    :menu-items="items"
-    :active-item="activeItem"
-    @select-menu="selectMenu"
+      :workspace-label="t('dashboard.professional-space')"
+      :sidebar-label="t('dashboard.professional-section')"
+      :user-name="currentUserStore.user?.name || t('dashboard.nutritionist-name')"
+      :user-plan="t('dashboard.professional-account')"
+      :menu-items="items"
+      :active-item="activeItem"
+      @select-menu="selectMenu"
   >
     <UserProfileManagementView v-if="activeItem === 'profile'" role="nutritionist" />
     <AppointmentList v-else-if="activeItem === 'appointments'" />

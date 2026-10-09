@@ -174,5 +174,75 @@
   },
   "errors": {
     "occurred": "Errors occurred"
+  },
+  "nutrition-plans": {
+    "title": "Nutrition Plans",
+    "id": "ID",
+    "name": "Name",
+    "description": "Description",
+    "objective": "Objective",
+    "start-date": "Start Date",
+    "end-date": "End Date",
+    "status": "Status",
+    "actions": "Actions",
+    "new": "New Nutrition Plan",
+    "confirm-delete": "Are you sure you want to delete {name}?",
+    "delete-header": "Confirm Deletion"
+  },
+  "nutrition-plan": {
+    "new-title": "Create New Nutrition Plan",
+    "edit-title": "Edit Nutrition Plan",
+    "name": "Name",
+    "description": "Description",
+    "objective": "Objective",
+    "start-date": "Start Date",
+    "end-date": "End Date",
+    "status": "Status",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "meal-plans": {
+    "title": "Meal Plans",
+    "id": "ID",
+    "nutrition-id": "Nutrition Plan ID",
+    "type": "Meal Type",
+    "description": "Description",
+    "calories": "Calories",
+    "actions": "Actions",
+    "new": "New Nutrition Plan",
+    "confirm-delete": "Are you sure you want to delete {name}?",
+    "delete-header": "Confirm Deletion"
+  },
+  "meal-plan": {
+    "new-title": "Create New Meal Plan",
+    "edit-title": "Edit Meal Plan",
+    "nutrition-id": "Nutrition Plan ID",
+    "type": "Meal Type",
+    "description": "Description",
+    "calories": "Calories",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "food-recommendations": {
+    "title": "Food Recommendations",
+    "id": "ID",
+    "meal-id": "Meal Plan ID",
+    "name": "Food Name",
+    "portion": "Portion",
+    "value": "Nutritional Value",
+    "actions": "Actions",
+    "new": "New Food Recommendation",
+    "confirm-delete": "Are you sure you want to delete {name}?",
+    "delete-header": "Confirm Deletion"
+  },
+  "food-recommendation": {
+    "new-title": "Create New Food Recommendation",
+    "edit-title": "Edit Food Recommendation",
+    "meal-id": "Meal Plan ID",
+    "name": "Food Name",
+    "portion": "Portion",
+    "value": "Nutritional Value",
+    "save": "Save",
+    "cancel": "Cancel"
   }
 }

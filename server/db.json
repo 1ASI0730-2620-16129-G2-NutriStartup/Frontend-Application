@@ -52,5 +52,234 @@
       "available": true
     }
   ],
-  "consultations": []
+  "consultations": [],
+  "nutritionPlans": [
+    {
+      "id": 1,
+      "name": "Plan de Pérdida de Peso",
+      "description": "Plan equilibrado orientado a reducir grasa corporal de manera progresiva.",
+      "objective": "Pérdida de peso",
+      "startDate": "2026-10-01",
+      "endDate": "2026-12-31",
+      "status": "Active"
+    },
+    {
+      "id": 2,
+      "name": "Plan de Ganancia Muscular",
+      "description": "Plan con mayor aporte energético y proteico para favorecer el desarrollo muscular.",
+      "objective": "Ganancia muscular",
+      "startDate": "2026-10-01",
+      "endDate": "2027-01-31",
+      "status": "Active"
+    },
+    {
+      "id": 3,
+      "name": "Plan de Alimentación Saludable",
+      "description": "Plan variado basado en alimentos naturales y una distribución equilibrada de nutrientes.",
+      "objective": "Mantener una alimentación saludable",
+      "startDate": "2026-10-01",
+      "endDate": "2026-12-31",
+      "status": "Inactive"
+    }
+  ],
+  "mealPlans": [
+    {
+      "id": 1,
+      "nutritionPlanId": 1,
+      "mealType": "Desayuno",
+      "description": "Desayuno ligero y rico en fibra.",
+      "calories": 350
+    },
+    {
+      "id": 2,
+      "nutritionPlanId": 1,
+      "mealType": "Almuerzo",
+      "description": "Almuerzo balanceado con proteínas magras y vegetales.",
+      "calories": 550
+    },
+    {
+      "id": 3,
+      "nutritionPlanId": 1,
+      "mealType": "Cena",
+      "description": "Cena ligera con proteínas y vegetales.",
+      "calories": 400
+    },
+    {
+      "id": 4,
+      "nutritionPlanId": 2,
+      "mealType": "Desayuno",
+      "description": "Desayuno alto en proteínas y carbohidratos.",
+      "calories": 650
+    },
+    {
+      "id": 5,
+      "nutritionPlanId": 2,
+      "mealType": "Almuerzo",
+      "description": "Almuerzo abundante para apoyar el crecimiento muscular.",
+      "calories": 850
+    },
+    {
+      "id": 6,
+      "nutritionPlanId": 2,
+      "mealType": "Cena",
+      "description": "Cena rica en proteínas para complementar el entrenamiento.",
+      "calories": 700
+    },
+    {
+      "id": 7,
+      "nutritionPlanId": 3,
+      "mealType": "Desayuno",
+      "description": "Desayuno variado y nutritivo para comenzar el día.",
+      "calories": 450
+    },
+    {
+      "id": 8,
+      "nutritionPlanId": 3,
+      "mealType": "Almuerzo",
+      "description": "Almuerzo equilibrado con alimentos naturales.",
+      "calories": 650
+    },
+    {
+      "id": 9,
+      "nutritionPlanId": 3,
+      "mealType": "Cena",
+      "description": "Cena moderada y nutritiva.",
+      "calories": 500
+    }
+  ],
+  "foodRecommendations": [
+    {
+      "id": 1,
+      "mealPlanId": 1,
+      "foodName": "Avena",
+      "portion": "50 g",
+      "nutritionalValue": "190 kcal, 7 g de proteína, 32 g de carbohidratos"
+    },
+    {
+      "id": 2,
+      "mealPlanId": 1,
+      "foodName": "Plátano",
+      "portion": "1 unidad",
+      "nutritionalValue": "105 kcal, 1 g de proteína, 27 g de carbohidratos"
+    },
+    {
+      "id": 3,
+      "mealPlanId": 2,
+      "foodName": "Pechuga de pollo",
+      "portion": "150 g",
+      "nutritionalValue": "250 kcal, 46 g de proteína, 0 g de carbohidratos"
+    },
+    {
+      "id": 4,
+      "mealPlanId": 2,
+      "foodName": "Arroz integral",
+      "portion": "120 g cocido",
+      "nutritionalValue": "135 kcal, 3 g de proteína, 28 g de carbohidratos"
+    },
+    {
+      "id": 5,
+      "mealPlanId": 3,
+      "foodName": "Ensalada de verduras",
+      "portion": "200 g",
+      "nutritionalValue": "80 kcal, 3 g de proteína, 14 g de carbohidratos"
+    },
+    {
+      "id": 6,
+      "mealPlanId": 3,
+      "foodName": "Atún",
+      "portion": "100 g",
+      "nutritionalValue": "130 kcal, 29 g de proteína, 0 g de carbohidratos"
+    },
+    {
+      "id": 7,
+      "mealPlanId": 4,
+      "foodName": "Huevos",
+      "portion": "3 unidades",
+      "nutritionalValue": "210 kcal, 18 g de proteína, 1 g de carbohidratos"
+    },
+    {
+      "id": 8,
+      "mealPlanId": 4,
+      "foodName": "Pan integral",
+      "portion": "3 rebanadas",
+      "nutritionalValue": "210 kcal, 9 g de proteína, 36 g de carbohidratos"
+    },
+    {
+      "id": 9,
+      "mealPlanId": 5,
+      "foodName": "Pechuga de pollo",
+      "portion": "200 g",
+      "nutritionalValue": "330 kcal, 62 g de proteína, 0 g de carbohidratos"
+    },
+    {
+      "id": 10,
+      "mealPlanId": 5,
+      "foodName": "Arroz blanco",
+      "portion": "250 g cocido",
+      "nutritionalValue": "325 kcal, 7 g de proteína, 70 g de carbohidratos"
+    },
+    {
+      "id": 11,
+      "mealPlanId": 5,
+      "foodName": "Palta",
+      "portion": "100 g",
+      "nutritionalValue": "160 kcal, 2 g de proteína, 9 g de carbohidratos"
+    },
+    {
+      "id": 12,
+      "mealPlanId": 6,
+      "foodName": "Carne magra",
+      "portion": "180 g",
+      "nutritionalValue": "360 kcal, 47 g de proteína, 0 g de carbohidratos"
+    },
+    {
+      "id": 13,
+      "mealPlanId": 6,
+      "foodName": "Papa sancochada",
+      "portion": "200 g",
+      "nutritionalValue": "174 kcal, 4 g de proteína, 40 g de carbohidratos"
+    },
+    {
+      "id": 14,
+      "mealPlanId": 7,
+      "foodName": "Yogur natural",
+      "portion": "200 g",
+      "nutritionalValue": "120 kcal, 10 g de proteína, 12 g de carbohidratos"
+    },
+    {
+      "id": 15,
+      "mealPlanId": 7,
+      "foodName": "Frutos rojos",
+      "portion": "100 g",
+      "nutritionalValue": "50 kcal, 1 g de proteína, 12 g de carbohidratos"
+    },
+    {
+      "id": 16,
+      "mealPlanId": 8,
+      "foodName": "Pescado a la plancha",
+      "portion": "180 g",
+      "nutritionalValue": "220 kcal, 42 g de proteína, 0 g de carbohidratos"
+    },
+    {
+      "id": 17,
+      "mealPlanId": 8,
+      "foodName": "Quinua",
+      "portion": "150 g cocida",
+      "nutritionalValue": "180 kcal, 7 g de proteína, 32 g de carbohidratos"
+    },
+    {
+      "id": 18,
+      "mealPlanId": 9,
+      "foodName": "Sopa de verduras",
+      "portion": "300 ml",
+      "nutritionalValue": "120 kcal, 4 g de proteína, 20 g de carbohidratos"
+    },
+    {
+      "id": 19,
+      "mealPlanId": 9,
+      "foodName": "Huevo cocido",
+      "portion": "2 unidades",
+      "nutritionalValue": "140 kcal, 12 g de proteína, 1 g de carbohidratos"
+    }
+  ]
 }

@@ -45,13 +45,13 @@ const today = computed(() => {
       <p class="sidebar-label">{{ sidebarLabel }}</p>
       <nav class="side-navigation" aria-label="Navegación principal">
         <button
-          v-for="item in menuItems"
-          :key="item.key"
-          type="button"
-          class="navigation-item"
-          :class="{ active: activeItem === item.key }"
-          :aria-current="activeItem === item.key ? 'page' : undefined"
-          @click="emit('select-menu', item.key)"
+            v-for="item in menuItems"
+            :key="item.key"
+            type="button"
+            class="navigation-item"
+            :class="{ active: activeItem === item.key }"
+            :aria-current="activeItem === item.key ? 'page' : undefined"
+            @click="emit('select-menu', item.key)"
         >
           <i :class="item.icon" aria-hidden="true" />
           <span>{{ item.label }}</span>

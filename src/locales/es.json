@@ -174,5 +174,75 @@
   },
   "errors": {
     "occurred": "Ocurrieron errores"
+  },
+  "nutrition-plans": {
+    "title": "Planes de Nutrición",
+    "id": "ID",
+    "name": "Nombre",
+    "description": "Descripción",
+    "objective": "Objectivo",
+    "start-date": "Fecha de Inicio",
+    "end-date": "Fecha de Fin",
+    "status": "Estado",
+    "actions": "Acciones",
+    "new": "Nuevo Plan de Nutrición",
+    "confirm-delete": "¿Estás seguro de que quieres eliminar {title}?",
+    "delete-header": "Confirmar Eliminación"
+  },
+  "nutrition-plan": {
+    "new-title": "Crear Nuevo Plan de Nutrición",
+    "edit-title": "Editar Plan de Nutrición",
+    "name": "Nombre",
+    "description": "Descripción",
+    "objective": "Objectivo",
+    "start-date": "Fecha de Inicio",
+    "end-date": "Fecha de Fin",
+    "status": "Estado",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "meal-plans": {
+    "title": "Planes de Comidas",
+    "id": "ID",
+    "nutrition-id": "ID de Plan de Nutrición",
+    "type": "Tipo de Comida",
+    "description": "Descripción",
+    "calories": "Calorías",
+    "actions": "Acciones",
+    "new": "Nuevo Plan de Comida",
+    "confirm-delete": "¿Estás seguro de que quieres eliminar {title}?",
+    "delete-header": "Confirmar Eliminación"
+  },
+  "meal-plan": {
+    "new-title": "Crear Nuevo Plan de Comida",
+    "edit-title": "Editar Plan de Comida",
+    "nutrition-id": "ID de Plan de Nutrición",
+    "type": "Tipo de Comida",
+    "description": "Descripción",
+    "calories": "Calorías",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "food-recommendations": {
+    "title": "Recomendaciones de Alimentos",
+    "id": "ID",
+    "meal-id": "ID de Plan de Comida",
+    "name": "Nombre del Alimento",
+    "portion": "Porción",
+    "value": "Valor Nutricional",
+    "actions": "Acciones",
+    "new": "Nueva Recomendación de Alimento",
+    "confirm-delete": "¿Estás seguro de que quieres eliminar {title}?",
+    "delete-header": "Confirmar Eliminación"
+  },
+  "food-recommendation": {
+    "new-title": "Crear Nueva Recomendación de Alimento",
+    "edit-title": "Editar Recomendación de Alimento",
+    "meal-id": "ID de Plan de Comida",
+    "name": "Nombre del Alimento",
+    "portion": "Porción",
+    "value": "Valor Nutricional",
+    "save": "Guardar",
+    "cancel": "Cancelar"
   }
 }

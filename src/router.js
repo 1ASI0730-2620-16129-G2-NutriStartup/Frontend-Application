@@ -3,6 +3,8 @@ import NutritionistView from "@/shared/presentation/views/nutritionist-view.vue"
 import PatientView from "@/shared/presentation/views/patient-view.vue";
 import iamRoutes from "@/iam/presentation/iam-routes.js";
 import { authenticationGuard } from "@/iam/infrastructure/authentication.guard.js";
+import nutritionNutritionistRoutes from "@/nutrition/presentation/nutrition-nutritionist-routes.js";
+import nutritionPatientRoutes from "@/nutrition/presentation/nutrition-patient-routes.js";
 
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');

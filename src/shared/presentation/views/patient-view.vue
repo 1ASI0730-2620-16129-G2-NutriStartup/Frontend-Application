@@ -19,12 +19,26 @@ const items = computed(() => [
   { key: 'plan', label: t('dashboard.menu.plan'), icon: 'pi pi-calendar' },
   { key: 'meals', label: t('dashboard.menu.meals'), icon: 'pi pi-apple' },
   { key: 'progress', label: t('dashboard.menu.progress'), icon: 'pi pi-chart-bar' },
+  { key: 'patients', label: t('dashboard.menu.patients'), icon: 'pi pi-users' },
   { key: 'nutritionist', label: t('dashboard.menu.nutritionist'), icon: 'pi pi-user' },
   { key: 'appointments', label: t('option.appointments'), icon: 'pi pi-calendar' },
   { key: 'availability', label: t('option.availability'), icon: 'pi pi-clock' },
   { key: 'profile', label: t('profile.menu'), icon: 'pi pi-id-card' },
+  { key: 'nutrition-plans', label: t('option.nutrition-plans'), icon: 'pi pi-heart' },
+  { key: 'meal-plans', label: t('option.meal-plans'), icon: 'pi pi-heart' },
+  { key: 'food-recommendations', label: t('option.food-recommendations'), icon: 'pi pi-heart' }
   /*Aquí deben agregar más opciones*/
 ]);
+
+function onSelectMenu(key) {
+  const destinations = {
+    home: 'user2-home',
+    'nutrition-plans': 'nutrition-plans-patient',
+    'meal-plans': 'meal-plans-patient',
+    'food-recommendations': 'food-recommendations-patient',
+  };
+  if (destinations[key]) router.push({ name: destinations[key] });
+}
 
 function selectMenu(key) {
   activeItem.value = key;
@@ -37,13 +51,13 @@ function selectAvailability(id) {
 
 <template>
   <dashboard-shell
-    :workspace-label="t('dashboard.personal-space')"
-    :sidebar-label="t('dashboard.personal-section')"
-    :user-name="currentUserStore.user?.name || t('dashboard.patient-name')"
-    :user-plan="t('dashboard.free-plan')"
-    :menu-items="items"
-    :active-item="activeItem"
-    @select-menu="selectMenu"
+      :workspace-label="t('dashboard.personal-space')"
+      :sidebar-label="t('dashboard.personal-section')"
+      :user-name="currentUserStore.user?.name || t('dashboard.patient-name')"
+      :user-plan="t('dashboard.free-plan')"
+      :menu-items="items"
+      :active-item="activeItem"
+      @select-menu="selectMenu"
   >
     <UserProfileManagementView v-if="activeItem === 'profile'" role="patient" />
     <AppointmentList v-else-if="activeItem === 'appointments'" />
