@@ -1,30 +1,54 @@
 <script setup>
-import {useI18n} from "vue-i18n";
+import { useI18n } from 'vue-i18n';
+
 const { locale, availableLocales } = useI18n();
+
+function changeLocale(language) {
+  locale.value = language;
+}
 </script>
 
 <template>
-  <pv-select-button
-      class="button-configuration"
-      v-model="locale"
-      :options="availableLocales">
-    <template #option="slotProps">
-      <span>{{ slotProps.option.toUpperCase() }}</span>
-    </template>
-  </pv-select-button>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button
+      v-for="language in availableLocales"
+      :key="language"
+      class="language-button"
+      :class="{ active: locale === language }"
+      type="button"
+      :aria-pressed="locale === language"
+      @click="changeLocale(language)"
+    >
+      {{ language.toUpperCase() }}
+    </button>
+  </div>
 </template>
 
 <style scoped>
-.button-configuration {
+.language-switcher {
+  display: flex;
   gap: 0.5rem;
 }
 
-.button-configuration :deep(.p-togglebutton),
-.button-configuration :deep(.p-togglebutton-checked) {
-  background-color: #32cd32;
-  border-color: #64acfc;
-  color: white;
-  padding: 10px 30px;
-  border-radius: 9999px !important;
+.language-button {
+  padding: 9px 16px;
+  border: 1px solid #39bca3;
+  border-radius: 4px;
+  color: #fff;
+  background: #39bca3;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.language-button:hover {
+  border-color: #2da990;
+  background: #2da990;
+}
+
+.language-button:focus-visible {
+  outline: 2px solid #176b53;
+  outline-offset: 2px;
 }
 </style>
