@@ -14,11 +14,7 @@ const routes =
             path: '/home',
             name: 'home',
             component: NutritionistView,
-            meta: { title: 'Home' },
-            children: [
-                { path: '', redirect: { name: 'nutrition-plans-nutritionist' } },
-                ...nutritionNutritionistRoutes,
-            ],
+            meta: { title: 'Home' }
         },
         {
             path: '/about',
@@ -34,21 +30,13 @@ const routes =
             path: '/user1-view',
             name: 'user1',
             component: NutritionistView,
-            meta: { title: 'User 1' },
-            children: [
-                { path: '', redirect: { name: 'nutrition-plans-nutritionist' } },
-                ...nutritionNutritionistRoutes,
-            ],
+            meta: { title: 'User 1' }
         },
         {
             path: '/user2-view',
             name: 'user2',
             component: PatientView,
-            meta: { title: 'User 2' },
-            children: [
-                { path: '', redirect: { name: 'nutrition-plans-patient' } },
-                ...nutritionPatientRoutes,
-            ],
+            meta: { title: 'User 2' }
         },
         {
             path: '/:pageMatch(.*)*',
