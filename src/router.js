@@ -6,6 +6,10 @@ import { authenticationGuard } from "@/iam/infrastructure/authentication.guard.j
 
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
+const appointmentsView = () => import('./appointment-management/presentation/views/appointments.vue');
+const appointmentNewView = () => import('./appointment-management/presentation/views/appointment-new.vue');
+const availabilityView = () => import('./appointment-management/presentation/views/availability.vue');
+const consultationNewView = () => import('./appointment-management/presentation/views/consultation-new.vue');
 
 const routes =
     [
@@ -24,6 +28,30 @@ const routes =
             name: 'about',
             component: about,
             meta: { title: 'About' }
+        },
+        {
+            path: '/appointments',
+            name: 'appointments',
+            component: appointmentsView,
+            meta: { title: 'Appointments' }
+        },
+        {
+            path: '/appointments/new',
+            name: 'appointment-new',
+            component: appointmentNewView,
+            meta: { title: 'New appointment' }
+        },
+        {
+            path: '/availability',
+            name: 'availability',
+            component: availabilityView,
+            meta: { title: 'Availability' }
+        },
+        {
+            path: '/consultations/new',
+            name: 'consultation-new',
+            component: consultationNewView,
+            meta: { title: 'Register consultation' }
         },
         {
             path: '/',

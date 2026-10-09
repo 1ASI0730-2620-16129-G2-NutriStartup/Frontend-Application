@@ -1,7 +1,9 @@
 {
   "option": {
     "home": "Home",
-    "about": "About"
+    "about": "About",
+    "appointments": "Appointments",
+    "availability": "Availability"
   },
   "iam": {
     "signInTitle": "Sign in",
@@ -29,6 +31,46 @@
     "switchToSignIn": "Already have an account?",
     "welcome": "Welcome, {name}",
     "requestFailed": "Authentication failed. Check your credentials and try again."
+  },
+  "workspace": {
+    "patient": "Patient workspace",
+    "nutritionist": "Nutritionist workspace",
+    "navigation": "NAVIGATION"
+  },
+  "appointments": {
+    "common": { "actions": "Actions", "delete": "Delete", "cancel": "Cancel", "empty": "No data", "error": "Something went wrong" },
+    "date": "Date",
+    "start": "Start",
+    "end": "End",
+    "nutritionist": "Nutritionist",
+    "reason": "Reason",
+    "status": "Status",
+    "availability": { "title": "Availability", "select": "Select" },
+    "form": {
+      "title": "Book appointment",
+      "submit": "Book",
+      "slot": "Time slot",
+      "choose": "Choose a time slot",
+      "selectSlot": "Select an available slot first",
+      "reasonRequired": "Reason is required"
+    },
+    "list": {
+      "title": "My appointments",
+      "new": "New appointment",
+      "consultation": "Register consultation",
+      "confirmCancel": "Cancel this appointment?",
+      "cancelled": "Appointment cancelled",
+      "confirmDelete": "Delete this appointment permanently?",
+      "deleted": "Appointment deleted"
+    }
+  },
+  "consultations": {
+    "title": "Register consultation",
+    "notes": "Notes",
+    "recommendations": "Recommendations",
+    "submit": "Save",
+    "noAppointment": "No associated appointment",
+    "notesRequired": "Notes are required"
   },
   "dashboard": {
     "personal-space": "My personal space",

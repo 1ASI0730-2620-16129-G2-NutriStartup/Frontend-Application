@@ -1,0 +1,45 @@
+<script setup>
+import { onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useAppointmentStore } from '@/appointment-management/application/appointment.store.js';
+import { useCurrentUserStore } from '@/shared/application/current-user.store.js';
+
+const emit = defineEmits(['selected']);
+const { t } = useI18n();
+const store = useAppointmentStore();
+const currentUserStore = useCurrentUserStore();
+const isPatient = currentUserStore.user?.role === 'patient';
+
+function loadAvailability() {
+  const user = currentUserStore.user;
+  store.getAvailability(user?.role === 'nutritionist' ? user.id : undefined);
+}
+
+function selectAvailability(id) {
+  emit('selected', id);
+}
+
+onMounted(loadAvailability);
+</script>
+
+<template>
+  <section class="p-4">
+    <h2>{{ t('appointments.availability.title') }}</h2>
+    <pv-data-table :value="store.availabilities" data-key="id" :empty-message="t('appointments.common.empty')">
+      <pv-column field="date" :header="t('appointments.date')" />
+      <pv-column field="startTime" :header="t('appointments.start')" />
+      <pv-column field="endTime" :header="t('appointments.end')" />
+      <pv-column field="nutritionistId" :header="t('appointments.nutritionist')" />
+      <pv-column v-if="isPatient" :header="t('appointments.common.actions')">
+        <template #body="{ data }">
+          <pv-button
+              :label="t('appointments.availability.select')"
+              size="small"
+              :disabled="!data.isAvailable()"
+              @click="selectAvailability(data.id)"
+          />
+        </template>
+      </pv-column>
+    </pv-data-table>
+  </section>
+</template>

@@ -21,5 +21,36 @@
   "goals": [],
   "preferences": [],
   "restrictions": [],
-  "nutritionist_profiles": []
+  "nutritionist_profiles": [],
+  "appointments": [
+    {
+      "id": 2,
+      "userId": "patient-demo-001",
+      "nutritionistId": "nutritionist-demo-001",
+      "date": "2026-10-12",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "status": "PENDING",
+      "reason": "Consulta nutricional"
+    }
+  ],
+  "availabilities": [
+    {
+      "id": 1,
+      "nutritionistId": "nutritionist-demo-001",
+      "date": "2026-10-12",
+      "startTime": "09:00",
+      "endTime": "10:00",
+      "available": true
+    },
+    {
+      "id": 2,
+      "nutritionistId": "nutritionist-demo-001",
+      "date": "2026-10-12",
+      "startTime": "11:00",
+      "endTime": "12:00",
+      "available": true
+    }
+  ],
+  "consultations": []
 }

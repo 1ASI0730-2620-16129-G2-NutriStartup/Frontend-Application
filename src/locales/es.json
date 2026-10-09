@@ -1,7 +1,9 @@
 {
   "option": {
     "home": "Inicio",
-    "about": "Acerca de"
+    "about": "Acerca de",
+    "appointments": "Citas",
+    "availability": "Disponibilidad"
   },
   "iam": {
     "signInTitle": "Iniciar sesión",
@@ -29,6 +31,46 @@
     "switchToSignIn": "¿Ya tienes cuenta?",
     "welcome": "Bienvenido/a, {name}",
     "requestFailed": "No se pudo autenticar. Revisa tus credenciales e inténtalo de nuevo."
+  },
+  "workspace": {
+    "patient": "Espacio del paciente",
+    "nutritionist": "Espacio del nutricionista",
+    "navigation": "NAVEGACIÓN"
+  },
+  "appointments": {
+    "common": { "actions": "Acciones", "delete": "Eliminar", "cancel": "Cancelar", "empty": "Sin datos", "error": "Ocurrió un error" },
+    "date": "Fecha",
+    "start": "Inicio",
+    "end": "Fin",
+    "nutritionist": "Nutricionista",
+    "reason": "Motivo",
+    "status": "Estado",
+    "availability": { "title": "Disponibilidad", "select": "Seleccionar" },
+    "form": {
+      "title": "Reservar cita",
+      "submit": "Reservar",
+      "slot": "Horario",
+      "choose": "Elige un horario",
+      "selectSlot": "Selecciona un horario disponible primero",
+      "reasonRequired": "El motivo es obligatorio"
+    },
+    "list": {
+      "title": "Mis citas",
+      "new": "Nueva cita",
+      "consultation": "Registrar consulta",
+      "confirmCancel": "¿Cancelar esta cita?",
+      "cancelled": "Cita cancelada",
+      "confirmDelete": "¿Eliminar esta cita definitivamente?",
+      "deleted": "Cita eliminada"
+    }
+  },
+  "consultations": {
+    "title": "Registrar consulta",
+    "notes": "Notas",
+    "recommendations": "Recomendaciones",
+    "submit": "Guardar",
+    "noAppointment": "No hay cita asociada",
+    "notesRequired": "Las notas son obligatorias"
   },
   "dashboard": {
     "personal-space": "Mi espacio personal",
