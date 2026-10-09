@@ -1,7 +1,9 @@
 import { BaseApi } from '@/shared/infrastructure/base-api.js';
 import { BaseEndpoint } from '@/shared/infrastructure/base-endpoint.js';
+import { iamInterceptor } from '@/iam/infrastructure/iam.interceptor.js';
 
 const baseApi = new BaseApi();
+baseApi.http.interceptors.request.use(iamInterceptor);
 
 function createCollectionEndpoint(path) {
   const endpoint = new BaseEndpoint(baseApi, path);

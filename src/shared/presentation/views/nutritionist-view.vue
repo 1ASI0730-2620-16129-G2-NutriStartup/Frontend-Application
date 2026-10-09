@@ -3,6 +3,7 @@ import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import LanguageSwitcher from "@/shared/presentation/components/language-switcher.vue";
 import DashboardShell from "@/shared/presentation/components/dashboard-shell.vue";
+import AuthenticationSection from "@/iam/presentation/components/authentication-section.vue";
 import UserProfileManagementView from '@/user-profile-management/presentation/components/user-profile-management-view.vue';
 import { useCurrentUserStore } from '@/shared/application/current-user.store.js';
 
@@ -31,6 +32,7 @@ const items = computed(() => [
   >
     <UserProfileManagementView v-if="activeItem === 'profile'" role="nutritionist" />
     <template #topbar-actions>
+      <AuthenticationSection />
       <LanguageSwitcher />
     </template>
   </dashboard-shell>
