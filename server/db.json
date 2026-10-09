@@ -1,16 +1,6 @@
 {
   "appointments": [
     {
-      "id": 1,
-      "userId": 1,
-      "nutritionistId": 1,
-      "date": "2026-10-12",
-      "startTime": "09:00",
-      "endTime": "10:00",
-      "status": "CANCELLED",
-      "reason": "cdfvfgb"
-    },
-    {
       "userId": 1,
       "nutritionistId": 1,
       "date": "2026-10-12",

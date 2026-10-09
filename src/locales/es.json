@@ -11,7 +11,7 @@
     "navigation": "NAVEGACIÓN"
   },
   "appointments": {
-    "common": { "actions": "Acciones", "cancel": "Cancelar", "empty": "Sin datos", "error": "Ocurrió un error" },
+    "common": { "actions": "Acciones","delete": "Eliminar", "cancel": "Cancelar", "empty": "Sin datos", "error": "Ocurrió un error" },
     "date": "Fecha",
     "start": "Inicio",
     "end": "Fin",
@@ -32,7 +32,9 @@
       "new": "Nueva cita",
       "consultation": "Registrar consulta",
       "confirmCancel": "¿Cancelar esta cita?",
-      "cancelled": "Cita cancelada"
+      "cancelled": "Cita cancelada",
+      "confirmDelete": "¿Eliminar esta cita definitivamente?",
+      "deleted": "Cita eliminada"
     }
   },
   "consultations": {

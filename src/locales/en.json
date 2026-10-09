@@ -11,7 +11,7 @@
     "navigation": "NAVIGATION"
   },
   "appointments": {
-    "common": { "actions": "Actions", "cancel": "Cancel", "empty": "No data", "error": "Something went wrong" },
+    "common": { "actions": "Actions","delete": "Delete", "cancel": "Cancel", "empty": "No data", "error": "Something went wrong" },
     "date": "Date",
     "start": "Start",
     "end": "End",
@@ -32,7 +32,9 @@
       "new": "New appointment",
       "consultation": "Register consultation",
       "confirmCancel": "Cancel this appointment?",
-      "cancelled": "Appointment cancelled"
+      "cancelled": "Appointment cancelled",
+      "confirmDelete": "Delete this appointment permanently?",
+      "deleted": "Appointment deleted"
     }
   },
   "consultations": {

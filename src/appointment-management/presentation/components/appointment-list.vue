@@ -28,8 +28,28 @@ function cancelAppointment(id) {
     header: t('appointments.common.cancel'),
     icon: 'pi pi-exclamation-triangle',
     accept: async () => {
-      await store.cancelAppointment(id);
-      toast.add({ severity: 'success', summary: t('appointments.list.cancelled'), life: 3000 });
+      try {
+        await store.cancelAppointment(id);
+        toast.add({ severity: 'success', summary: t('appointments.list.cancelled'), life: 3000 });
+      } catch {
+        toast.add({ severity: 'error', summary: t('appointments.common.error'), life: 4000 });
+      }
+    },
+  });
+}
+
+function deleteAppointment(id) {
+  confirm.require({
+    message: t('appointments.list.confirmDelete'),
+    header: t('appointments.common.delete'),
+    icon: 'pi pi-trash',
+    accept: async () => {
+      try {
+        await store.deleteAppointment(id);
+        toast.add({ severity: 'success', summary: t('appointments.list.deleted'), life: 3000 });
+      } catch {
+        toast.add({ severity: 'error', summary: t('appointments.common.error'), life: 4000 });
+      }
     },
   });
 }
@@ -67,9 +87,16 @@ onMounted(loadAppointments);
             <pv-button
                 :label="t('appointments.common.cancel')"
                 size="small"
-                severity="danger"
+                severity="warn"
                 :disabled="!data.isAvailable()"
                 @click="cancelAppointment(data.id)"
+            />
+            <pv-button
+                :label="t('appointments.common.delete')"
+                icon="pi pi-trash"
+                size="small"
+                severity="danger"
+                @click="deleteAppointment(data.id)"
             />
           </div>
         </template>
@@ -80,5 +107,5 @@ onMounted(loadAppointments);
 
 <style scoped>
 .header { display: flex; justify-content: space-between; align-items: center; }
-.row-actions { display: flex; gap: .5rem; }
+.row-actions { display: flex; gap: .5rem; flex-wrap: wrap; }
 </style>
