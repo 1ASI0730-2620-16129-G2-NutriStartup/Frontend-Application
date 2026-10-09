@@ -10,6 +10,8 @@
     "professional-section": "MI ESPACIO",
     "free-plan": "Plan gratuito",
     "professional-account": "Cuenta profesional",
+    "patient-name": "Paciente",
+    "nutritionist-name": "Nutricionista",
     "menu": {
       "home": "Inicio",
       "plan": "Mi plan",
@@ -18,6 +20,69 @@
       "nutritionist": "Nutricionista",
       "patients": "Pacientes",
       "plans": "Planes"
+    }
+  },
+  "profile": {
+    "menu": "Mi perfil",
+    "eyebrow": "Gestión del perfil",
+    "patientTitle": "Mi perfil personal",
+    "nutritionistTitle": "Mi perfil profesional",
+    "patientDescription": "Mantén actualizados tus datos, objetivos y necesidades alimentarias.",
+    "nutritionistDescription": "Comparte tu especialidad y experiencia profesional.",
+    "sectionsNavigation": "Secciones del perfil",
+    "sections": {
+      "personal": "Datos personales",
+      "goals": "Objetivos",
+      "preferences": "Preferencias",
+      "restrictions": "Restricciones",
+      "professional": "Información profesional"
+    },
+    "fields": {
+      "firstName": "Nombres",
+      "lastName": "Apellidos",
+      "age": "Edad",
+      "gender": "Género",
+      "weight": "Peso actual",
+      "height": "Estatura",
+      "goalType": "Objetivo",
+      "targetWeight": "Peso objetivo",
+      "targetDate": "Fecha objetivo",
+      "status": "Estado",
+      "dietaryPreferences": "Preferencias alimentarias",
+      "favoriteFoods": "Alimentos favoritos",
+      "restrictionType": "Tipo de restricción",
+      "description": "Descripción",
+      "specialty": "Especialidad",
+      "experienceYears": "Años de experiencia",
+      "years": "años"
+    },
+    "actions": {
+      "save": "Guardar cambios",
+      "addGoal": "Agregar objetivo",
+      "addPreference": "Agregar preferencia",
+      "addRestriction": "Agregar restricción",
+      "update": "Actualizar",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "cancel": "Cancelar"
+    },
+    "personalHint": "Estos datos se asocian a tu cuenta y sirven para personalizar tu experiencia.",
+    "goalsHint": "Define objetivos de alimentación y actividad física para orientar tu progreso.",
+    "preferencesHint": "Registra alimentos y hábitos que prefieres para orientar futuras recomendaciones.",
+    "restrictionsHint": "Registra alimentos que deben excluirse de las recomendaciones.",
+    "professionalHint": "Esta información permite a los pacientes conocer tu enfoque profesional.",
+    "messages": {
+      "sessionRequiredTitle": "Inicia sesión para gestionar tu perfil",
+      "sessionRequired": "No se encontró un usuario autenticado. La integración con el contexto de sesión del BC de identidad todavía debe conectarse.",
+      "loading": "Cargando información del perfil…",
+      "saved": "Los cambios se guardaron correctamente.",
+      "loadError": "No se pudo cargar la información del perfil.",
+      "saveError": "No se pudieron guardar los cambios. Inténtalo nuevamente.",
+      "correctFields": "Revisa los campos requeridos y sus valores.",
+      "savePersonalFirst": "Guarda tus datos personales antes de registrar objetivos.",
+      "noGoals": "Aún no tienes objetivos registrados.",
+      "noPreferences": "Aún no tienes preferencias registradas.",
+      "noRestrictions": "Aún no tienes restricciones registradas."
     }
   },
   "authoring-phrase": {

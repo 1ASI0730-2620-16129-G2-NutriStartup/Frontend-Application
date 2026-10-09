@@ -10,6 +10,8 @@
     "professional-section": "MY SPACE",
     "free-plan": "Free plan",
     "professional-account": "Professional account",
+    "patient-name": "Patient",
+    "nutritionist-name": "Nutritionist",
     "menu": {
       "home": "Home",
       "plan": "My plan",
@@ -18,6 +20,69 @@
       "nutritionist": "Nutritionist",
       "patients": "Patients",
       "plans": "Plans"
+    }
+  },
+  "profile": {
+    "menu": "My profile",
+    "eyebrow": "Profile management",
+    "patientTitle": "My personal profile",
+    "nutritionistTitle": "My professional profile",
+    "patientDescription": "Keep your information, goals, and dietary needs up to date.",
+    "nutritionistDescription": "Share your specialty and professional experience.",
+    "sectionsNavigation": "Profile sections",
+    "sections": {
+      "personal": "Personal information",
+      "goals": "Goals",
+      "preferences": "Preferences",
+      "restrictions": "Restrictions",
+      "professional": "Professional information"
+    },
+    "fields": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "age": "Age",
+      "gender": "Gender",
+      "weight": "Current weight",
+      "height": "Height",
+      "goalType": "Goal",
+      "targetWeight": "Target weight",
+      "targetDate": "Target date",
+      "status": "Status",
+      "dietaryPreferences": "Dietary preferences",
+      "favoriteFoods": "Favorite foods",
+      "restrictionType": "Restriction type",
+      "description": "Description",
+      "specialty": "Specialty",
+      "experienceYears": "Years of experience",
+      "years": "years"
+    },
+    "actions": {
+      "save": "Save changes",
+      "addGoal": "Add goal",
+      "addPreference": "Add preference",
+      "addRestriction": "Add restriction",
+      "update": "Update",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel"
+    },
+    "personalHint": "This information is linked to your account and helps personalize your experience.",
+    "goalsHint": "Set nutrition and physical activity goals to guide your progress.",
+    "preferencesHint": "Record foods and habits you prefer to guide future recommendations.",
+    "restrictionsHint": "Record foods that should be excluded from recommendations.",
+    "professionalHint": "This information helps patients understand your professional approach.",
+    "messages": {
+      "sessionRequiredTitle": "Sign in to manage your profile",
+      "sessionRequired": "No authenticated user was found. The identity bounded context session still needs to be connected.",
+      "loading": "Loading profile information…",
+      "saved": "Your changes were saved.",
+      "loadError": "Profile information could not be loaded.",
+      "saveError": "Your changes could not be saved. Please try again.",
+      "correctFields": "Check the required fields and their values.",
+      "savePersonalFirst": "Save your personal information before adding goals.",
+      "noGoals": "You have no goals yet.",
+      "noPreferences": "You have no preferences yet.",
+      "noRestrictions": "You have no restrictions yet."
     }
   },
   "authoring-phrase": {
