@@ -36,3 +36,8 @@ npm run dev
 ```sh
 npm run build
 ```
+## Comando para lanzar el servidor
+
+```sh
+npm run server
+```
