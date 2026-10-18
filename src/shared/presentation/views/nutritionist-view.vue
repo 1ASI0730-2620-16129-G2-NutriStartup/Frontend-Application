@@ -36,6 +36,9 @@ function selectMenu(key) {
     'nutrition-plans': 'nutrition-plans-nutritionist',
     'meal-plans': 'meal-plans-nutritionist',
     'food-recommendations': 'food-recommendations-nutritionist',
+    appointments: 'appointments-nutritionist',
+    availability: 'availability-nutritionist',
+    profile: 'profile-nutritionist',
   };
   if (destinations[key]) router.push({ name: destinations[key] });
 }
@@ -65,4 +68,3 @@ function selectAvailability(id) {
     </template>
   </dashboard-shell>
 </template>
-

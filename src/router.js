@@ -65,6 +65,9 @@ const routes =
             meta: { title: 'User 1' },
             children: [
                 { path: '', name: 'user1-home', component: Home, meta: { title: 'Home', menuKey: 'home' } },
+                { path: 'appointments-nutritionist', name: 'appointments-nutritionist', component: Home, meta: { title: 'Appointments', menuKey: 'appointments' } },
+                { path: 'availability-nutritionist', name: 'availability-nutritionist', component: Home, meta: { title: 'Availability', menuKey: 'availability' } },
+                { path: 'profile-nutritionist', name: 'profile-nutritionist', component: Home, meta: { title: 'Profile', menuKey: 'profile' } },
                 ...nutritionNutritionistRoutes.map((route) => ({
                     ...route,
                     meta: { ...route.meta, menuKey: route.path.startsWith('nutrition-plans') ? 'nutrition-plans' : route.path.startsWith('meal-plans') ? 'meal-plans' : 'food-recommendations' }
@@ -78,6 +81,9 @@ const routes =
             meta: { title: 'User 2' },
             children: [
                 { path: '', name: 'user2-home', component: Home, meta: { title: 'Home', menuKey: 'home' } },
+                { path: 'appointments-patient', name: 'appointments-patient', component: Home, meta: { title: 'Appointments', menuKey: 'appointments' } },
+                { path: 'availability-patient', name: 'availability-patient', component: Home, meta: { title: 'Availability', menuKey: 'availability' } },
+                { path: 'profile-patient', name: 'profile-patient', component: Home, meta: { title: 'Profile', menuKey: 'profile' } },
                 ...nutritionPatientRoutes.map((route) => ({
                     ...route,
                     meta: { ...route.meta, menuKey: route.path.startsWith('nutrition-plans') ? 'nutrition-plans' : route.path.startsWith('meal-plans') ? 'meal-plans' : 'food-recommendations' }
