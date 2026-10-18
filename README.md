@@ -1,4 +1,4 @@
-# frontend-application
+# Frontend-Application
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -25,7 +25,13 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Command to start the server
+
+```sh
+npm run server
+```
+
+### Command to start the program
 
 ```sh
 npm run dev
@@ -35,9 +41,4 @@ npm run dev
 
 ```sh
 npm run build
-```
-## Comando para lanzar el servidor
-
-```sh
-npm run server
 ```
