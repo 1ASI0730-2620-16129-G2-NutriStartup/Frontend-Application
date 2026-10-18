@@ -14,7 +14,7 @@ const { errors, addNutritionPlan, updateNutritionPlan } = store;
 const form = ref({
   name: '', description: '',
   objective: '', startDate: '', endDate: '',
-  status: ''
+  status: 'Active'
 });
 
 const isEdit = computed(() => {
@@ -98,8 +98,8 @@ const navigateBack = () => {
               required
           />
         </div>
-        <label for="status">{{ t('nutrition-plans.status') }}</label>
-        <pv-input-text id="status" v-model="form.status" class="w-full" required />
+        <!--<label for="status">{{ t('nutrition-plans.status') }}</label>
+        <pv-input-text id="status" v-model="form.status" class="w-full" required />-->
       </div>
       <pv-button :label="t('nutrition-plan.save')" icon="pi pi-save" type="submit" />
       <pv-button
