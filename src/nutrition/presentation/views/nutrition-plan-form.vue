@@ -98,8 +98,13 @@ const navigateBack = () => {
               required
           />
         </div>
-        <!--<label for="status">{{ t('nutrition-plans.status') }}</label>
-        <pv-input-text id="status" v-model="form.status" class="w-full" required />-->
+        <div v-if="isEdit">
+          <label for="status">{{ t('nutrition-plans.status') }}</label>
+          <select id="status" v-model="form.status" class="w-full" required>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+        </div>
       </div>
       <pv-button :label="t('nutrition-plan.save')" icon="pi pi-save" type="submit" />
       <pv-button
