@@ -80,6 +80,7 @@ const confirmDelete = (foodRecommendation) => {
 
 <style scoped>
 h1 {
-  font-style: italic;
+  font-family: sans-serif;
+  color: #1A3026;
 }
 </style>
