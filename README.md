@@ -31,13 +31,13 @@ npm install
 npm run server
 ```
 
-### Command to start the program
+## Command to start the program
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Compile and Minify for Production
 
 ```sh
 npm run build

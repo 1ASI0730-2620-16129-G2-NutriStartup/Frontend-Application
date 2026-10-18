@@ -2,16 +2,16 @@
   "users": [
     {
       "id": "patient-demo-001",
-      "username": "alejandro.vilchez@gmail.com",
-      "email": "alejandro.vilchez@gmail.com",
+      "username": "paciente@gmail.com",
+      "email": "paciente@gmail.com",
       "name": "Paciente",
       "password": "paciente123",
       "role": "patient"
     },
     {
       "id": "nutritionist-demo-001",
-      "username": "gabrielvilchezvite@gmail.com",
-      "email": "gabrielvilchezvite@gmail.com",
+      "username": "nutricionista@gmail.com",
+      "email": "nutricionista@gmail.com",
       "name": "Nutricionista",
       "password": "nutricionista123",
       "role": "nutritionist"
