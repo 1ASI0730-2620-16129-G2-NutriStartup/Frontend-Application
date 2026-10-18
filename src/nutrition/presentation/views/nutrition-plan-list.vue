@@ -91,6 +91,6 @@ const confirmDelete = (nutritionPlan) => {
 <style scoped>
 h1 {
   font-family: sans-serif;
-  color: #1A3026;
+  color: #154d37;
 }
 </style>
