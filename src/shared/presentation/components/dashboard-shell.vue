@@ -22,6 +22,30 @@ const props = defineProps({
 const emit = defineEmits(['select-menu']);
 const initials = computed(() => props.userName.split(' ').map((name) => name[0]).slice(0, 2).join('').toUpperCase());
 const activeLabel = computed(() => props.menuItems.find((item) => item.key === props.activeItem)?.label ?? '');
+
+const navigationEntries = computed(() => {
+  const entries = [];
+  const addedGroups = new Set();
+  for (const item of props.menuItems) {
+    if (!item.group) {
+      entries.push({ type: 'item', key: item.key, item });
+      continue;
+    }
+    if (addedGroups.has(item.group.key)) continue;
+    addedGroups.add(item.group.key);
+    entries.push({
+      type: 'group',
+      key: item.group.key,
+      label: item.group.label,
+      items: props.menuItems.filter(
+          (menuItem) => menuItem.group?.key === item.group.key,
+      ),
+    });
+  }
+
+  return entries;
+});
+
 const today = computed(() => {
   const date = new Intl.DateTimeFormat('es-PE', {
     weekday: 'long',
@@ -44,18 +68,45 @@ const today = computed(() => {
 
       <p class="sidebar-label">{{ sidebarLabel }}</p>
       <nav class="side-navigation" aria-label="Navegación principal">
-        <button
-            v-for="item in menuItems"
-            :key="item.key"
-            type="button"
-            class="navigation-item"
-            :class="{ active: activeItem === item.key }"
-            :aria-current="activeItem === item.key ? 'page' : undefined"
-            @click="emit('select-menu', item.key)"
-        >
-          <i :class="item.icon" aria-hidden="true" />
-          <span>{{ item.label }}</span>
-        </button>
+        <template v-for="entry in navigationEntries" :key="entry.key">
+          <button
+              v-if="entry.type === 'item'"
+              type="button"
+              class="navigation-item"
+              :class="{ active: activeItem === entry.item.key }"
+              :aria-current="activeItem === entry.item.key ? 'page' : undefined"
+              @click="emit('select-menu', entry.item.key)"
+          >
+            <i :class="entry.item.icon" aria-hidden="true" />
+            <span>{{ entry.item.label }}</span>
+          </button>
+
+          <div v-else class="navigation-group">
+            <button
+                type="button"
+                class="navigation-item navigation-group-trigger"
+                :class="{ active: entry.items.some(item => item.key === activeItem) }"
+            >
+              <i :class="entry.items[0]?.icon" aria-hidden="true" />
+              <span>{{ entry.label }}</span>
+            </button>
+
+            <div class="navigation-group-items" :aria-label="entry.label">
+              <button
+                  v-for="item in entry.items"
+                  :key="item.key"
+                  type="button"
+                  class="navigation-item"
+                  :class="{ active: activeItem === item.key }"
+                  :aria-current="activeItem === item.key ? 'page' : undefined"
+                  @click="emit('select-menu', item.key)"
+              >
+                <i :class="item.icon" aria-hidden="true" />
+                <span>{{ item.label }}</span>
+              </button>
+            </div>
+          </div>
+        </template>
       </nav>
 
       <div class="sidebar-bottom">
@@ -349,6 +400,58 @@ const today = computed(() => {
   flex: 1;
   min-height: calc(100vh - 78px);
   background: #f4f7f2;
+}
+
+.navigation-group {
+  position: relative;
+}
+
+.navigation-group:hover {
+  z-index: 5;
+}
+
+.navigation-group-items {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 2px);
+  display: none;
+  width: 204px;
+  background: var(--sidebar-green);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.navigation-group:hover .navigation-group-items,
+.navigation-group:focus-within .navigation-group-items {
+  display: grid;
+}
+
+.navigation-group-items .navigation-item {
+  min-height: 52px;
+  border-radius: 0;
+}
+
+.navigation-group-items .navigation-item:last-child {
+  border-bottom: 0;
+}
+
+.sidebar {
+  z-index: 10;
+  overflow: visible;
+}
+
+.side-navigation {
+  position: relative;
+  overflow: visible;
+}
+
+.navigation-group:hover,
+.navigation-group:focus-within {
+  z-index: 20;
+}
+
+.navigation-group-items {
+  z-index: 21;
 }
 
 @media (max-width: 760px) {
