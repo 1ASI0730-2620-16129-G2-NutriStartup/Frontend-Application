@@ -17,9 +17,24 @@ const currentUserStore = useCurrentUserStore();
 const activeItem = ref(route.meta.menuKey || 'home');
 const items = computed(() => [
   { key: 'home', label: t('dashboard.menu.home'), icon: 'pi pi-home' },
-  { key: 'nutrition-plans', label: t('option.nutrition-plans'), icon: 'pi pi-heart' },
-  { key: 'meal-plans', label: t('option.meal-plans'), icon: 'pi pi-heart' },
-  { key: 'food-recommendations', label: t('option.food-recommendations'), icon: 'pi pi-heart' },
+  {
+    key: 'nutrition-plans',
+    label: t('option.nutrition-plans'),
+    icon: 'pi pi-heart',
+    group: { key: 'nutrition', label: t('option.plans-recommendations') },
+  },
+  {
+    key: 'meal-plans',
+    label: t('option.meal-plans'),
+    icon: 'pi pi-heart',
+    group: { key: 'nutrition', label: t('option.plans-recommendations') },
+  },
+  {
+    key: 'food-recommendations',
+    label: t('option.food-recommendations'),
+    icon: 'pi pi-heart',
+    group: { key: 'nutrition', label: t('option.plans-recommendations') },
+  },
   { key: 'appointments', label: t('option.appointments'), icon: 'pi pi-calendar' },
   { key: 'availability', label: t('option.availability'), icon: 'pi pi-clock' },
   { key: 'profile', label: t('profile.menu'), icon: 'pi pi-id-card' },
