@@ -20,6 +20,7 @@ const { t } = useI18n();
 }
 
 h1 {
-  font-style: italic;
+  font-family: sans-serif;
+  color: #154d37;
 }
 </style>
