@@ -322,5 +322,27 @@
       "portion": "2 unidades",
       "nutritionalValue": "140 kcal, 12 g de proteína, 1 g de carbohidratos"
     }
+  ],
+  "habitRecords": [
+    {
+      "id": 1,
+      "userId": "patient-demo-001",
+      "type": "FOOD",
+      "description": "Avena con frutas",
+      "quantity": 320,
+      "date": "2026-11-02",
+      "notes": "Desayuno",
+      "createdAt": "2026-11-02T13:10:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": "patient-demo-001",
+      "type": "ACTIVITY",
+      "description": "Caminata",
+      "quantity": 30,
+      "date": "2026-11-03",
+      "notes": "Parque cercano",
+      "createdAt": "2026-11-03T23:30:00.000Z"
+    }
   ]
 }
