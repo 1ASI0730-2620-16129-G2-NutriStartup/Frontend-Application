@@ -7,7 +7,8 @@
     "plans-recommendations": "Plans & Recommendations",
     "nutrition-plans": "Nutrition Plans",
     "meal-plans": "Meal Plans",
-    "food-recommendations": "Food Recommendations"
+    "food-recommendations": "Food Recommendations",
+    "habit-records": "My Habits"
   },
   "iam": {
     "signInTitle": "Sign in",
@@ -248,5 +249,52 @@
     "value": "Nutritional Value",
     "save": "Save",
     "cancel": "Cancel"
+  },
+  "progress-monitoring": {
+    "list": {
+      "title": "Habit history",
+      "new": "New record",
+      "empty": "No records in this period"
+    },
+    "filters": {
+      "from": "From",
+      "to": "To",
+      "apply": "Filter",
+      "clear": "Clear"
+    },
+    "columns": {
+      "date": "Date",
+      "type": "Type",
+      "description": "Description",
+      "quantity": "Quantity",
+      "notes": "Notes"
+    },
+    "types": {
+      "FOOD": "Food",
+      "ACTIVITY": "Physical activity"
+    },
+    "form": {
+      "title": "Log a habit",
+      "type": "Habit type",
+      "description": {
+        "FOOD": "Food eaten",
+        "ACTIVITY": "Activity performed"
+      },
+      "quantity": {
+        "FOOD": "Calories (kcal)",
+        "ACTIVITY": "Duration (min)"
+      },
+      "date": "Date",
+      "notes": "Notes (optional)",
+      "save": "Save",
+      "cancel": "Cancel",
+      "saved": "Habit logged successfully",
+      "error": "The habit could not be logged"
+    },
+    "validation": {
+      "required": "This field is required",
+      "positive": "Enter a number greater than 0",
+      "futureDate": "The date cannot be in the future"
+    }
   }
 }
