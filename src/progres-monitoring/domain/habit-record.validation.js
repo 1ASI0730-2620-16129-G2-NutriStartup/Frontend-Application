@@ -1,4 +1,4 @@
-﻿import { HabitType } from '@/progress-monitoring/domain/model/habit-record.entity.js';
+﻿import { HabitType } from '@/progres-monitoring/domain/model/habit-record.entity.js';
 
 export function todayIsoDate() {
     const now = new Date();

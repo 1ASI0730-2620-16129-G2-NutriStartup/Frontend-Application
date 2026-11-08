@@ -1,4 +1,4 @@
-﻿import { HabitRecord } from '@/progress-monitoring/domain/model/habit-record.entity.js';
+﻿import { HabitRecord } from '@/progres-monitoring/domain/model/habit-record.entity.js';
 
 export class HabitRecordAssembler {
     static toEntityFromResource(resource) {

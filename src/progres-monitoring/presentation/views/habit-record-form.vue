@@ -3,10 +3,10 @@ import { computed, reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { useToast } from 'primevue/usetoast';
-import { useProgressMonitoringStore } from '@/progress-monitoring/application/progress-monitoring.store.js';
+import { useProgressMonitoringStore } from '@/progres-monitoring/aplication/progress-monitoring.store.js';
 import { useCurrentUserStore } from '@/shared/application/current-user.store.js';
-import { HabitRecord, HabitType } from '@/progress-monitoring/domain/model/habit-record.entity.js';
-import { todayIsoDate, validateHabitRecord } from '@/progress-monitoring/domain/habit-record.validation.js';
+import { HabitRecord, HabitType } from '@/progres-monitoring/domain/model/habit-record.entity.js';
+import { todayIsoDate, validateHabitRecord } from '@/progres-monitoring/domain/habit-record.validation.js';
 
 const { t } = useI18n();
 const router = useRouter();

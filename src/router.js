@@ -6,7 +6,7 @@ import { authenticationGuard } from "@/iam/infrastructure/authentication.guard.j
 import nutritionNutritionistRoutes from "@/nutrition/presentation/nutrition-nutritionist-routes.js";
 import nutritionPatientRoutes from "@/nutrition/presentation/nutrition-patient-routes.js";
 import Home from "@/shared/presentation/views/home.vue";
-
+import progressMonitoringRoutes from "@/progres-monitoring/presentation/progress-monitoring-routes.js";
 const about = () => import('./shared/presentation/views/about.vue');
 const pageNotFound = () => import('./shared/presentation/views/page-not-found.vue');
 const appointmentsView = () => import('./appointment-management/presentation/views/appointments.vue');
@@ -87,6 +87,10 @@ const routes =
                 ...nutritionPatientRoutes.map((route) => ({
                     ...route,
                     meta: { ...route.meta, menuKey: route.path.startsWith('nutrition-plans') ? 'nutrition-plans' : route.path.startsWith('meal-plans') ? 'meal-plans' : 'food-recommendations' }
+                })),
+                ...progressMonitoringRoutes.map((route) => ({
+                    ...route,
+                    meta: { ...route.meta, menuKey: 'habit-records' }
                 }))
             ]
         },

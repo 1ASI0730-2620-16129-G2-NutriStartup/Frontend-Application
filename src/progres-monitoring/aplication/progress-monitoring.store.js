@@ -1,7 +1,7 @@
 ﻿import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
-import { ProgressMonitoringApi } from '@/progress-monitoring/infrastructure/progress-monitoring-api.js';
-import { HabitRecordAssembler } from '@/progress-monitoring/infrastructure/habit-record.assembler.js';
+import { ProgressMonitoringApi } from '@/progres-monitoring/infrastructure/progress-monitoring-api.js';
+import { HabitRecordAssembler } from '@/progres-monitoring/infrastructure/habit-record.assembler.js';
 
 const api = new ProgressMonitoringApi();
 

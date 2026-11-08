@@ -2,7 +2,7 @@
 import { computed, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import { useProgressMonitoringStore } from '@/progress-monitoring/application/progress-monitoring.store.js';
+import { useProgressMonitoringStore } from '@/progres-monitoring/application/progress-monitoring.store.js';
 import { useCurrentUserStore } from '@/shared/application/current-user.store.js';
 
 const { t } = useI18n();
