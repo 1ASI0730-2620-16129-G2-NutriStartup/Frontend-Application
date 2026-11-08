@@ -343,6 +343,16 @@
       "date": "2026-11-03",
       "notes": "Parque cercano",
       "createdAt": "2026-11-03T23:30:00.000Z"
+    },
+    {
+      "userId": "patient-demo-001",
+      "type": "FOOD",
+      "description": "Pechuga de pollo",
+      "quantity": 250,
+      "date": "2026-11-08",
+      "notes": "150 gramos",
+      "createdAt": "2026-11-08T23:20:04.915Z",
+      "id": 3
     }
   ]
 }
