@@ -7,7 +7,8 @@
     "plans-recommendations": "Planes y Recomendaciones",
     "nutrition-plans": "Planes de Nutrición",
     "meal-plans": "Planes de Comidas",
-    "food-recommendations": "Recomendaciones de Alimentos"
+    "food-recommendations": "Recomendaciones de Alimentos",
+    "habit-records": "Mis Hábitos"
   },
   "iam": {
     "signInTitle": "Iniciar sesión",
@@ -248,5 +249,52 @@
     "value": "Valor Nutricional",
     "save": "Guardar",
     "cancel": "Cancelar"
+  },
+  "progress-monitoring": {
+    "list": {
+      "title": "Historial de hábitos",
+      "new": "Nuevo registro",
+      "empty": "No hay registros en este periodo"
+    },
+    "filters": {
+      "from": "Desde",
+      "to": "Hasta",
+      "apply": "Filtrar",
+      "clear": "Limpiar"
+    },
+    "columns": {
+      "date": "Fecha",
+      "type": "Tipo",
+      "description": "Descripción",
+      "quantity": "Cantidad",
+      "notes": "Notas"
+    },
+    "types": {
+      "FOOD": "Alimentación",
+      "ACTIVITY": "Actividad física"
+    },
+    "form": {
+      "title": "Registrar hábito",
+      "type": "Tipo de hábito",
+      "description": {
+        "FOOD": "Alimento consumido",
+        "ACTIVITY": "Actividad realizada"
+      },
+      "quantity": {
+        "FOOD": "Calorías (kcal)",
+        "ACTIVITY": "Duración (min)"
+      },
+      "date": "Fecha",
+      "notes": "Notas (opcional)",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "saved": "Hábito registrado correctamente",
+      "error": "No se pudo registrar el hábito"
+    },
+    "validation": {
+      "required": "Este campo es obligatorio",
+      "positive": "Ingresa un número mayor que 0",
+      "futureDate": "La fecha no puede ser futura"
+    }
   }
 }
