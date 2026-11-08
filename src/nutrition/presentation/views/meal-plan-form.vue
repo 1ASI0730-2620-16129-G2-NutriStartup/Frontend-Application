@@ -20,9 +20,21 @@ const isEdit = computed(() => {
   return !!route.params.id;
 });
 
+const nutritionPlans = computed(() => store.nutritionPlans);
+
+const nutritionPlanOptions = computed(() => nutritionPlans.value.map(plan => ({
+  ...plan,
+  label: `${plan.id} - ${plan.name}`
+})));
+
 onMounted(() => {
   console.log("Mounted meal plan form");
   console.log(route.params.id);
+
+  if (!store.nutritionPlansLoaded) {
+    store.fetchNutritionPlans();
+  }
+
   if (isEdit.value) {
     const mealPlan = getMealPlanById(route.params.id);
     if (mealPlan) {
@@ -67,7 +79,9 @@ const navigateBack = () => {
     <form @submit.prevent="saveMealPlan">
       <div class="field mb-3">
         <label for="nutritionPlanId">{{ t('meal-plans.nutrition-id') }}</label>
-        <pv-input-text id="nutritionPlanId" v-model="form.nutritionPlanId" class="w-full" required />
+        <pv-select id="nutritionPlanId" v-model="form.nutritionPlanId"
+                   :options="nutritionPlanOptions" option-label="label" option-value="id"
+            class="w-full" required />
         <label for="mealType">{{ t('meal-plans.type') }}</label>
         <pv-input-text id="mealType" v-model="form.mealType" class="w-full" required />
         <label for="description">{{ t('meal-plans.description') }}</label>
