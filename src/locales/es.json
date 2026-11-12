@@ -35,7 +35,10 @@
     "switchToSignUp": "¿No tienes cuenta?",
     "switchToSignIn": "¿Ya tienes cuenta?",
     "welcome": "Bienvenido/a, {name}",
-    "requestFailed": "No se pudo autenticar. Revisa tus credenciales e inténtalo de nuevo."
+    "requestFailed": "No se pudo autenticar. Revisa tus credenciales e inténtalo de nuevo.",
+    "alternative-email-title": "Cuentas de prueba",
+    "alternative-email1": "Para los Nutricionistas:",
+    "alternative-email2": "Para los Pacientes:"
   },
   "workspace": {
     "patient": "Espacio del paciente",

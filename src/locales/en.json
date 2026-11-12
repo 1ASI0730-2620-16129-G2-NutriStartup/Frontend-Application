@@ -35,7 +35,10 @@
     "switchToSignUp": "Don't have an account?",
     "switchToSignIn": "Already have an account?",
     "welcome": "Welcome, {name}",
-    "requestFailed": "Authentication failed. Check your credentials and try again."
+    "requestFailed": "Authentication failed. Check your credentials and try again.",
+    "alternative-email-title": "Trial Accounts",
+    "alternative-email1": "For Nutritionists:",
+    "alternative-email2": "For Patients:"
   },
   "workspace": {
     "patient": "Patient workspace",
