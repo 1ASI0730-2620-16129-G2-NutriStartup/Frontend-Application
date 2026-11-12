@@ -11,10 +11,10 @@ const router = useRouter();
 </script>
 
 <template>
-  <main class="auth-page">
+  <main class="auth-page" :class="{ 'auth-page--with-after': $slots.after }">
     <div class="language-switcher"><LanguageSwitcher /></div>
     <section class="auth-card" aria-labelledby="auth-title">
-      <button class="close-button" type="button" aria-label="Close" @click="router.push({ name: 'about' })">
+      <button class="close-button" type="button" aria-label="Close" @click="router.push({ name: 'iam-sign-in' })">
         <i class="pi pi-times" aria-hidden="true" />
       </button>
       <div class="brand-mark" aria-hidden="true"><i class="pi pi-plus" /></div>
@@ -23,6 +23,7 @@ const router = useRouter();
       <slot />
       <footer v-if="$slots.footer" class="auth-footer"><slot name="footer" /></footer>
     </section>
+    <slot name="after" />
   </main>
 </template>
 
@@ -36,6 +37,12 @@ const router = useRouter();
   color: #243e32;
   background: radial-gradient(ellipse at 50% 0%, #e6f0e8 0%, #f1f5f0 48%, #e9f0e8 100%);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "form";
+  gap: 24px;
+  align-content: center;
+  justify-content: center;
 }
 
 .language-switcher {
@@ -53,6 +60,8 @@ const router = useRouter();
   border-radius: 25px;
   background: #fff;
   box-shadow: 0 18px 55px rgb(37 70 52 / 10%);
+
+  grid-area: form;
 }
 
 .brand-mark {
@@ -112,8 +121,28 @@ h1 {
   text-decoration: underline;
 }
 
+.auth-page--with-after {
+  grid-template-columns: repeat(2, minmax(0, 420px));
+  grid-template-areas: "form alternative";
+  gap: 24px;
+  align-content: center;
+  justify-content: center;
+}
+
+:deep(.email-alternative-card) {
+  grid-area: alternative;
+}
+
 @media (max-width: 480px) {
-  .auth-page { padding: 58px 14px 20px; }
+  .auth-page--with-after {
+    padding: 58px 14px 20px;
+
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+        "form"
+        "alternative";
+    gap: 14px;
+  }
   .auth-card { padding: 28px 22px 30px; border-radius: 21px; }
   .language-switcher { top: 12px; right: 14px; }
 }

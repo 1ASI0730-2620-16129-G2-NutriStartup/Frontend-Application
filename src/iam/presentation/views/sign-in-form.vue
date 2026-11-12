@@ -50,6 +50,16 @@ function performSignIn() {
       {{ t('iam.switchToSignUp') }}
       <router-link :to="{ name: 'iam-sign-up' }">{{ t('iam.signUpAction') }}</router-link>
     </template>
+
+    <template #after>
+      <section class="email-alternative-card">
+        <h5 id="auth-title">{{ t('iam.alternative-email-title') }}</h5>
+        <h6 id="auth-title">{{ t('iam.alternative-email1') }}</h6>
+        <p>gabrielvilchezvite@gmail.com | nutricionista123</p>
+        <h6 id="auth-title">{{ t('iam.alternative-email2') }}</h6>
+        <p>alejandro.vilchez@gmail.com | paciente123</p>
+      </section>
+    </template>
   </AuthenticationPage>
 </template>
 
@@ -88,4 +98,35 @@ function performSignIn() {
 }
 .submit-button:hover { background: #196947; }
 .form-error { margin: 0 0 5px; color: #a33d37; font-size: 12px; }
+
+.email-alternative-card {
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 100%;
+  justify-self: start;
+  margin: 14px auto 0;
+  padding: 24px 28px;
+  border: 1px solid rgb(222 233 223 / 90%);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgb(37 70 52 / 8%);
+  color: #243e32;
+}
+
+.email-alternative-card h5 {
+  margin: 0 0 16px;
+  font-size: 15px;
+}
+
+.email-alternative-card h6 {
+  margin: 14px 0 6px;
+  font-size: 13px;
+}
+
+.email-alternative-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
 </style>
